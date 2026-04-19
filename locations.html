@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations | Brentwood Organizers</title>
+    <meta name="description" content="Explore Brentwood Organizers service areas, including Boca Raton, Coral Gables, Fort Lauderdale, Miami Springs, Pembroke Pines, and West Palm Beach.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        :root{--cream:#faf8f4;--warm-white:#f5f2ed;--sand:#e8e0d4;--stone:#c9bfb0;--charcoal:#2a2520;--warm-gray:#6b6259;--gold:#b8965a;--text:#2a2520;--text-soft:#5a5149;}
+        body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;}
+        nav{position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.5rem 3.5rem;background:rgba(250,248,244,0.96);backdrop-filter:blur(12px);border-bottom:1px solid rgba(184,150,90,0.15);}
+        .nav-logo,.footer-logo{font-family:'Cormorant Garamond',serif;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;}
+        .nav-logo{font-size:1.4rem;font-weight:400;color:var(--charcoal);}
+        .nav-links,.footer-links{display:flex;gap:2rem;list-style:none;}
+        .nav-links li{position:relative;}
+        .nav-links a,.footer-links a{font-size:0.74rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--warm-gray);text-decoration:none;}
+        .nav-links a:hover,.footer-links a:hover{color:var(--gold);}
+        .nav-dropdown{position:absolute;top:calc(100% + 0.9rem);left:50%;transform:translateX(-50%);min-width:240px;padding:0.75rem 0;background:rgba(250,248,244,0.98);border:1px solid rgba(184,150,90,0.18);box-shadow:0 22px 45px rgba(42,37,32,0.08);opacity:0;visibility:hidden;transition:opacity 0.2s ease,transform 0.2s ease,visibility 0.2s ease;}
+        .nav-dropdown a{display:block;padding:0.8rem 1.1rem;font-size:0.7rem;letter-spacing:0.14em;}
+        .nav-item-services:hover .nav-dropdown,.nav-item-services:focus-within .nav-dropdown{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+        .nav-cta,.btn-primary{font-size:0.72rem;font-weight:500;letter-spacing:0.15em;text-transform:uppercase;text-decoration:none;transition:all 0.25s;}
+        .nav-cta{color:var(--charcoal)!important;border:1px solid var(--gold);padding:0.55rem 1.4rem;}
+        .nav-cta:hover{background:var(--gold);color:white!important;}
+        section{padding:6rem 3.5rem;}
+        .section-label{font-size:0.68rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+        .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,4rem);font-weight:300;line-height:1.15;color:var(--charcoal);margin-bottom:1.25rem;}
+        .section-intro{font-size:0.98rem;color:var(--text-soft);max-width:640px;line-height:1.85;}
+        .page-hero{background:linear-gradient(120deg, rgba(42,37,32,0.76), rgba(42,37,32,0.35)), url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=85&fit=crop') center/cover;min-height:58vh;display:flex;align-items:end;padding:8rem 3.5rem 4rem;}
+        .hero-card{max-width:760px;background:rgba(250,248,244,0.9);padding:2.5rem;border:1px solid rgba(184,150,90,0.22);backdrop-filter:blur(8px);}
+        .locations-section{background:var(--warm-white);}
+        .locations-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+        .location-card{background:var(--cream);border:1px solid rgba(201,191,176,0.7);padding:2rem;}
+        .location-card h3{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--charcoal);margin-bottom:0.75rem;}
+        .location-card p{font-size:0.92rem;color:var(--text-soft);line-height:1.85;}
+        .location-link,.btn-primary{display:inline-block;margin-top:1rem;padding:1rem 2.4rem;border:1px solid var(--charcoal);background:var(--charcoal);color:var(--cream);}
+        .location-link{text-transform:uppercase;letter-spacing:0.14em;font-size:0.72rem;text-decoration:none;}
+        .location-link:hover,.btn-primary:hover{background:var(--gold);border-color:var(--gold);}
+        footer{background:#1a1612;padding:3rem 3.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;border-top:1px solid rgba(184,150,90,0.15);}
+        .footer-logo{font-size:1.1rem;font-weight:400;color:var(--cream);}
+        .footer-copy{font-size:0.72rem;color:var(--warm-gray);letter-spacing:0.06em;}
+        @media (max-width:900px){nav{padding:1.25rem 1.5rem;} .nav-links{display:none;} section{padding:4rem 1.5rem;} .page-hero{min-height:auto;padding:6.5rem 1.5rem 2rem;} .hero-card,.location-card{padding:2rem;} .locations-grid{grid-template-columns:1fr;} footer{flex-direction:column;text-align:center;}}
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">Brentwood Organizers</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-item-services"><a href="services.html">Services</a><div class="nav-dropdown"><a href="luxury-move-in.html">Luxury Move-In</a><a href="home-organization.html">Home Organization</a><a href="estate-transitions.html">Estate Transitions</a></div></li>
+            <li class="nav-item-services"><a href="locations.html">Locations</a><div class="nav-dropdown"><a href="bal-harbour.html">Bal Harbour</a><a href="boca-raton.html">Boca Raton</a><a href="brickell.html">Brickell</a><a href="coral-gables.html">Coral Gables</a><a href="fort-lauderdale.html">Fort Lauderdale</a><a href="miami-springs.html">Miami Springs</a><a href="pembroke-pines.html">Pembroke Pines</a><a href="west-palm-beach.html">West Palm Beach</a></div></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
+        </ul>
+    </nav>
+    <section class="page-hero">
+        <div class="hero-card">
+            <div class="section-label">Service Areas</div>
+            <h1 class="section-title">Locations Brentwood Organizers serves.</h1>
+            <p class="section-intro">Explore location-specific pages for the areas you asked to feature. Each page highlights how Brentwood Organizers supports local move-ins, home organization projects, and estate transitions.</p>
+        </div>
+    </section>
+    <section class="locations-section">
+        <div style="max-width:1200px; margin:0 auto 3rem;">
+            <div class="section-label">Browse Locations</div>
+            <h2 class="section-title">All location pages, organized alphabetically.</h2>
+        </div>
+        <div class="locations-grid">
+            <div class="location-card"><h3>Bal Harbour</h3><p>White-glove home organization, move-in setup, and transition support for Bal Harbour residences.</p><a href="bal-harbour.html" class="location-link">View Location</a></div>
+            <div class="location-card"><h3>Boca Raton</h3><p>Luxury move-in support, organizing systems, and transition services tailored to Boca Raton homes.</p><a href="boca-raton.html" class="location-link">View Location</a></div>
+            <div class="location-card"><h3>Brickell</h3><p>Condo move-in support, storage solutions, and refined organization for Brickell residences.</p><a href="brickell.html" class="location-link">View Location</a></div>
+            <div class="location-card"><h3>Coral Gables</h3><p>High-touch home organization and relocation support for Coral Gables households.</p><a href="coral-gables.html" class="location-link">View Location</a></div>
+            <div class="location-card"><h3>Fort Lauderdale</h3><p>Organized move-ins, home systems, and transition planning for Fort Lauderdale clients.</p><a href="fort-lauderdale.html" class="location-link">View Location</a></div>
+            <div class="location-card"><h3>Miami Springs</h3><p>Practical, polished organizing support for homes that need better flow and function.</p><a href="miami-springs.html" class="location-link">View Location</a></div>
+            <div class="location-card"><h3>Pembroke Pines</h3><p>Maintainable organizing systems and transition support for busy households in Pembroke Pines.</p><a href="pembroke-pines.html" class="location-link">View Location</a></div>
+            <div class="location-card"><h3>West Palm Beach</h3><p>White-glove setup, organization, and transition support for West Palm Beach homes.</p><a href="west-palm-beach.html" class="location-link">View Location</a></div>
+        </div>
+    </section>
+    <footer>
+        <a href="index.html" class="footer-logo">Brentwood Organizers</a>
+        <span class="footer-copy">© 2026 Brentwood Professional Organizers · Miami, FL</span>
+        <ul class="footer-links"><li><a href="services.html">Services</a></li><li><a href="index.html#about">About</a></li><li><a href="consultation.html">Contact</a></li></ul>
+    </footer>
+</body>
+</html>

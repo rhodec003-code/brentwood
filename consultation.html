@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Consultation | Brentwood Organizers</title>
+    <meta name="description" content="Request a consultation with Brentwood Organizers for luxury move-in support, home organization, and estate transitions across Miami.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cream: #faf8f4;
+            --warm-white: #f5f2ed;
+            --sand: #e8e0d4;
+            --stone: #c9bfb0;
+            --charcoal: #2a2520;
+            --warm-gray: #6b6259;
+            --light-gray: #9c9289;
+            --gold: #b8965a;
+            --gold-light: #d4ad73;
+            --text: #2a2520;
+            --text-soft: #5a5149;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3.5rem;
+            background: rgba(250,248,244,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,150,90,0.15);
+        }
+        .nav-logo, .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+        .nav-links, .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links li { position: relative; }
+        .nav-links a, .footer-links a {
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+        }
+        .nav-links a:hover, .footer-links a:hover { color: var(--gold); }
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 0.9rem);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            background: rgba(250,248,244,0.98);
+            border: 1px solid rgba(184,150,90,0.18);
+            box-shadow: 0 22px 45px rgba(42,37,32,0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+        .nav-dropdown a {
+            display: block;
+            padding: 0.8rem 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+        }
+        .nav-item-services:hover .nav-dropdown,
+        .nav-item-services:focus-within .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-cta, .btn-primary, .btn-gold {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+        .nav-cta {
+            color: var(--charcoal) !important;
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.4rem;
+        }
+        .nav-cta:hover { background: var(--gold); color: white !important; }
+        section { padding: 6rem 3.5rem; }
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+        .section-intro {
+            font-size: 0.98rem;
+            color: var(--text-soft);
+            max-width: 640px;
+            line-height: 1.85;
+        }
+        .page-hero {
+            background:
+                linear-gradient(120deg, rgba(42,37,32,0.76), rgba(42,37,32,0.35)),
+                url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=85&fit=crop') center/cover;
+            min-height: 64vh;
+            display: flex;
+            align-items: end;
+            padding: 8rem 3.5rem 4rem;
+        }
+        .hero-card {
+            max-width: 760px;
+            background: rgba(250,248,244,0.9);
+            padding: 2.5rem;
+            border: 1px solid rgba(184,150,90,0.22);
+            backdrop-filter: blur(8px);
+        }
+        .consultation-section { background: var(--warm-white); }
+        .request-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            align-items: start;
+        }
+        .request-card, .request-side {
+            background: var(--cream);
+            border: 1px solid rgba(184,150,90,0.18);
+        }
+        .request-card { padding: 3rem; }
+        .request-form {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem 1.25rem;
+        }
+        .request-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+        .request-field.full-width { grid-column: 1 / -1; }
+        .request-field label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+        }
+        .request-field input,
+        .request-field select,
+        .request-field textarea {
+            width: 100%;
+            border: 1px solid var(--sand);
+            background: white;
+            color: var(--text);
+            padding: 0.95rem 1rem;
+            font: inherit;
+        }
+        .request-field input:focus,
+        .request-field select:focus,
+        .request-field textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+        .request-field textarea {
+            min-height: 170px;
+            resize: vertical;
+        }
+        .request-note {
+            grid-column: 1 / -1;
+            font-size: 0.83rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+        }
+        .btn-primary, .btn-gold {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--charcoal);
+            background: var(--charcoal);
+            color: var(--cream);
+            cursor: pointer;
+        }
+        .btn-primary:hover, .btn-gold:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        .request-side { padding: 2.5rem; }
+        .request-side-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+        .request-side-copy {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        .service-areas, .benefit-list {
+            display: grid;
+            gap: 0.7rem 1rem;
+            list-style: none;
+            margin: 1.5rem 0 2rem;
+        }
+        .service-areas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .service-areas li, .benefit-list li {
+            font-size: 0.84rem;
+            color: var(--warm-gray);
+            position: relative;
+            padding-left: 1rem;
+        }
+        .service-areas li::before, .benefit-list li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+        }
+        .contact-lines {
+            display: grid;
+            gap: 0.6rem;
+        }
+        .contact-lines a {
+            font-size: 0.86rem;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+        .contact-lines a:hover { color: var(--gold); }
+        footer {
+            background: #1a1612;
+            padding: 3rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(184,150,90,0.15);
+        }
+        .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--cream);
+        }
+        .footer-copy {
+            font-size: 0.72rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.06em;
+        }
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            section { padding: 4rem 1.5rem; }
+            .page-hero { min-height: auto; padding: 6.5rem 1.5rem 2rem; }
+            .hero-card, .request-card, .request-side { padding: 2rem; }
+            .request-layout, .request-form, .service-areas { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">Brentwood Organizers</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-item-services">
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown">
+                    <a href="luxury-move-in.html">Luxury Move-In</a>
+                    <a href="home-organization.html">Home Organization</a>
+                    <a href="estate-transitions.html">Estate Transitions</a>
+                </div>
+            </li>
+            <li class="nav-item-services">
+                <a href="locations.html">Locations</a>
+                <div class="nav-dropdown">
+                    <a href="bal-harbour.html">Bal Harbour</a>
+                    <a href="boca-raton.html">Boca Raton</a>
+                    <a href="brickell.html">Brickell</a>
+                    <a href="coral-gables.html">Coral Gables</a>
+                    <a href="fort-lauderdale.html">Fort Lauderdale</a>
+                    <a href="miami-springs.html">Miami Springs</a>
+                    <a href="pembroke-pines.html">Pembroke Pines</a>
+                    <a href="west-palm-beach.html">West Palm Beach</a>
+                </div>
+            </li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
+        </ul>
+    </nav>
+    <section class="page-hero">
+        <div class="hero-card">
+            <div class="section-label">Request a Consultation</div>
+            <h1 class="section-title">Tell us what kind of support your home needs.</h1>
+            <p class="section-intro">Every project begins with a conversation. Share your timeline, service needs, and a few project details, and Brentwood Organizers will follow up to schedule your complimentary consultation.</p>
+        </div>
+    </section>
+    <section class="consultation-section">
+        <div class="request-layout">
+            <div class="request-card">
+                <div class="section-label">Service Request Form</div>
+                <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3rem);">We'll help you find the right starting point.</h2>
+                <p class="section-intro">Use the form below to request support for a move-in, home organization project, estate transition, or a combination of services.</p>
+                <form class="request-form" id="requestForm">
+                    <div class="request-field">
+                        <label for="full-name">Full Name</label>
+                        <input id="full-name" name="Full Name" type="text" required>
+                    </div>
+                    <div class="request-field">
+                        <label for="email">Email</label>
+                        <input id="email" name="Email" type="email" required>
+                    </div>
+                    <div class="request-field">
+                        <label for="phone">Phone</label>
+                        <input id="phone" name="Phone" type="tel">
+                    </div>
+                    <div class="request-field">
+                        <label for="service">Service Needed</label>
+                        <select id="service" name="Service Needed" required>
+                            <option value="">Select a service</option>
+                            <option>Luxury Move-In</option>
+                            <option>Home Organization</option>
+                            <option>Estate Transitions</option>
+                            <option>Multiple Services</option>
+                        </select>
+                    </div>
+                    <div class="request-field">
+                        <label for="location">Project Location</label>
+                        <input id="location" name="Project Location" type="text" placeholder="City or neighborhood">
+                    </div>
+                    <div class="request-field">
+                        <label for="timeline">Ideal Timeline</label>
+                        <input id="timeline" name="Ideal Timeline" type="text" placeholder="As soon as possible, next month, etc.">
+                    </div>
+                    <div class="request-field full-width">
+                        <label for="details">Project Details</label>
+                        <textarea id="details" name="Project Details" placeholder="Share a few details about the home, rooms involved, and the kind of support you need." required></textarea>
+                    </div>
+                    <p class="request-note">Submitting opens your email app with the inquiry prefilled so Brentwood Organizers can respond directly.</p>
+                    <div class="request-field full-width">
+                        <button type="submit" class="btn-primary">Send Request</button>
+                    </div>
+                </form>
+            </div>
+            <aside class="request-side">
+                <div class="section-label">Why Clients Reach Out</div>
+                <h3 class="request-side-title">Concierge-level support with a clear next step.</h3>
+                <p class="request-side-copy">Most clients reach out when they want an organized home quickly, discreetly, and with more support than a standard organizing session provides.</p>
+                <ul class="benefit-list">
+                    <li>You're moving into a new home and want it set up beautifully from day one</li>
+                    <li>You need practical systems for closets, kitchens, pantries, and everyday spaces</li>
+                    <li>You're downsizing or managing a more sensitive transition and want steady guidance</li>
+                    <li>You need a trusted team that can coordinate details while you focus elsewhere</li>
+                </ul>
+                <div class="section-label">Service Areas</div>
+                <ul class="service-areas">
+                    <li>Coral Gables</li>
+                    <li>Brickell</li>
+                    <li>Miami Beach</li>
+                    <li>Coconut Grove</li>
+                    <li>Pinecrest</li>
+                    <li>Aventura</li>
+                    <li>Bal Harbour</li>
+                    <li>Fort Lauderdale</li>
+                </ul>
+                <div class="section-label" style="margin-top:0;">Get Connected</div>
+                <div class="contact-lines">
+                    <a href="tel:+14243940619">+1 (424) 394-0619</a>
+                </div>
+            </aside>
+        </div>
+    </section>
+    <footer>
+        <a href="index.html" class="footer-logo">Brentwood Organizers</a>
+        <span class="footer-copy">© 2026 Brentwood Professional Organizers · Miami, FL</span>
+        <ul class="footer-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html">Contact</a></li>
+        </ul>
+    </footer>
+    <script>
+        const requestForm = document.getElementById('requestForm');
+        const serviceSelect = document.getElementById('service');
+        const params = new URLSearchParams(window.location.search);
+        const requestedService = params.get('service');
+
+        if (requestedService && serviceSelect) {
+            const matchingOption = Array.from(serviceSelect.options).find(function (option) {
+                return option.value === requestedService || option.text === requestedService;
+            });
+
+            if (matchingOption) {
+                serviceSelect.value = matchingOption.value || matchingOption.text;
+            }
+        }
+
+        if (requestForm) {
+            requestForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                const formData = new FormData(requestForm);
+                const subject = 'Request a Consultation';
+                const body = [
+                    'Full Name: ' + (formData.get('Full Name') || ''),
+                    'Email: ' + (formData.get('Email') || ''),
+                    'Phone: ' + (formData.get('Phone') || ''),
+                    'Service Needed: ' + (formData.get('Service Needed') || ''),
+                    'Project Location: ' + (formData.get('Project Location') || ''),
+                    'Ideal Timeline: ' + (formData.get('Ideal Timeline') || ''),
+                    '',
+                    'Project Details:',
+                    formData.get('Project Details') || ''
+                ].join('\n');
+
+                window.location.href = 'mailto:info@brentwoodorganizers.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+            });
+        }
+    </script>
+</body>
+</html>

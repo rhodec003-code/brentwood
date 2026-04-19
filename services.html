@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Brentwood Organizers</title>
+    <meta name="description" content="Explore Brentwood Organizers' luxury home organization services, including move-in setup, home organization, and estate transitions across Miami.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #faf8f4;
+            --warm-white: #f5f2ed;
+            --sand: #e8e0d4;
+            --stone: #c9bfb0;
+            --charcoal: #2a2520;
+            --warm-gray: #6b6259;
+            --light-gray: #9c9289;
+            --gold: #b8965a;
+            --gold-light: #d4ad73;
+            --text: #2a2520;
+            --text-soft: #5a5149;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3.5rem;
+            background: rgba(250,248,244,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,150,90,0.15);
+        }
+
+        .nav-logo,
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+
+        .nav-links,
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a,
+        .footer-links a {
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover,
+        .footer-links a:hover { color: var(--gold); }
+
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 0.9rem);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            background: rgba(250,248,244,0.98);
+            border: 1px solid rgba(184,150,90,0.18);
+            box-shadow: 0 22px 45px rgba(42,37,32,0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+
+        .nav-dropdown a {
+            display: block;
+            padding: 0.8rem 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+        }
+
+        .nav-item-services:hover .nav-dropdown,
+        .nav-item-services:focus-within .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-cta,
+        .btn-primary,
+        .btn-secondary,
+        .btn-gold,
+        .service-link {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+
+        .nav-cta {
+            color: var(--charcoal) !important;
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.4rem;
+        }
+
+        .nav-cta:hover { background: var(--gold); color: white !important; }
+
+        section { padding: 6rem 3.5rem; }
+
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+
+        .section-intro {
+            font-size: 0.98rem;
+            color: var(--text-soft);
+            max-width: 620px;
+            line-height: 1.85;
+        }
+
+        .page-hero {
+            background:
+                linear-gradient(120deg, rgba(42,37,32,0.78), rgba(42,37,32,0.38)),
+                url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1600&q=85&fit=crop') center/cover;
+            min-height: 72vh;
+            display: flex;
+            align-items: end;
+            padding: 8rem 3.5rem 4rem;
+        }
+
+        .hero-card {
+            max-width: 760px;
+            background: rgba(250,248,244,0.9);
+            padding: 2.5rem;
+            border: 1px solid rgba(184,150,90,0.22);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero-card .section-title { margin-bottom: 1rem; }
+
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-gold {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--charcoal);
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+
+        .btn-primary:hover,
+        .btn-gold:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--stone);
+            color: var(--charcoal);
+        }
+
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+        .services-overview {
+            background: var(--warm-white);
+        }
+
+        .overview-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .overview-card,
+        .service-panel,
+        .process-card {
+            background: var(--cream);
+            border: 1px solid rgba(201,191,176,0.7);
+        }
+
+        .overview-card {
+            padding: 2rem;
+        }
+
+        .overview-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            line-height: 1;
+            color: var(--sand);
+            margin-bottom: 1rem;
+        }
+
+        .overview-card h3,
+        .service-copy h2,
+        .process-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+
+        .overview-card p,
+        .service-copy p,
+        .process-card p,
+        .service-list li {
+            font-size: 0.92rem;
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+
+        .service-detail {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .service-panel {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            overflow: hidden;
+        }
+
+        .service-panel:nth-child(even) .service-image { order: -1; }
+
+        .service-copy {
+            padding: 3rem;
+        }
+
+        .service-kicker {
+            font-size: 0.7rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.9rem;
+        }
+
+        .service-copy p + p { margin-top: 1rem; }
+
+        .service-list {
+            list-style: none;
+            margin: 1.75rem 0 2rem;
+            display: grid;
+            gap: 0.85rem;
+        }
+
+        .service-list li {
+            padding-left: 1.4rem;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .service-link {
+            color: var(--gold);
+        }
+
+        .service-link:hover { color: var(--charcoal); }
+
+        .process-section {
+            background: linear-gradient(180deg, #4a433c 0%, #38322d 100%);
+            border-top: 1px solid rgba(184,150,90,0.16);
+            border-bottom: 1px solid rgba(184,150,90,0.16);
+        }
+
+        .process-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-wrap .section-title,
+        .process-wrap .section-intro { color: var(--cream); }
+
+        .process-wrap .section-intro { max-width: 560px; color: var(--stone); }
+
+        .process-grid {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .process-card {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(212,173,115,0.28);
+            padding: 2rem;
+        }
+
+        .process-card h3,
+        .process-card p { color: #f8f4ee; }
+
+        .process-step {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #f0c98e;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 6rem 3.5rem 7rem;
+        }
+
+        .cta-box {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--warm-white);
+            border: 1px solid rgba(184,150,90,0.18);
+            padding: 3rem;
+        }
+
+        footer {
+            background: #1a1612;
+            padding: 3rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(184,150,90,0.15);
+        }
+
+        .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--cream);
+        }
+
+        .footer-copy {
+            font-size: 0.72rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.06em;
+        }
+
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            section { padding: 4rem 1.5rem; }
+            .page-hero { min-height: auto; padding: 6.5rem 1.5rem 2rem; }
+            .hero-card { padding: 2rem; }
+            .overview-grid,
+            .process-grid,
+            .service-panel { grid-template-columns: 1fr; }
+            .service-panel:nth-child(even) .service-image { order: 0; }
+            .service-copy { padding: 2rem; }
+            .service-image img { min-height: 280px; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">Brentwood Organizers</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-item-services">
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown">
+                    <a href="luxury-move-in.html">Luxury Move-In</a>
+                    <a href="home-organization.html">Home Organization</a>
+                    <a href="estate-transitions.html">Estate Transitions</a>
+                </div>
+            </li>
+            <li class="nav-item-services">
+                <a href="locations.html">Locations</a>
+                <div class="nav-dropdown">
+                    <a href="bal-harbour.html">Bal Harbour</a>
+                    <a href="boca-raton.html">Boca Raton</a>
+                    <a href="brickell.html">Brickell</a>
+                    <a href="coral-gables.html">Coral Gables</a>
+                    <a href="fort-lauderdale.html">Fort Lauderdale</a>
+                    <a href="miami-springs.html">Miami Springs</a>
+                    <a href="pembroke-pines.html">Pembroke Pines</a>
+                    <a href="west-palm-beach.html">West Palm Beach</a>
+                </div>
+            </li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <div class="hero-card">
+            <div class="section-label">Signature Services</div>
+            <h1 class="section-title">Thoughtful organization for every chapter of home.</h1>
+            <p class="section-intro">
+                Whether you're settling into a new residence, refining the way your home functions, or navigating a major life transition,
+                Brentwood Organizers delivers discreet, white-glove support from first plan to final placement.
+            </p>
+            <div class="hero-actions">
+                <a href="consultation.html" class="btn-primary">Book a Consultation</a>
+                <a href="locations.html" class="btn-secondary">View Locations</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-overview">
+        <div style="max-width:1200px; margin:0 auto 3rem;">
+            <div class="section-label">At a Glance</div>
+            <h2 class="section-title">Three ways we create calm, order, and ease.</h2>
+            <p class="section-intro">Each engagement is tailored, but our work typically begins in one of these signature service categories.</p>
+        </div>
+        <div class="overview-grid">
+            <div class="overview-card">
+                <div class="overview-number">01</div>
+                <h3>Luxury Move-In</h3>
+                <p>We coordinate the details before moving day, oversee unpacking, and style each room so the home feels complete from the moment you arrive.</p>
+                <a href="luxury-move-in.html" class="service-link" style="margin-top:1.25rem; display:inline-block;">Explore Service</a>
+            </div>
+            <div class="overview-card">
+                <div class="overview-number">02</div>
+                <h3>Home Organization</h3>
+                <p>We design intuitive systems for closets, kitchens, offices, and storage zones that look beautiful and stay functional long after the project ends.</p>
+                <a href="home-organization.html" class="service-link" style="margin-top:1.25rem; display:inline-block;">Explore Service</a>
+            </div>
+            <div class="overview-card">
+                <div class="overview-number">03</div>
+                <h3>Estate Transitions</h3>
+                <p>We provide compassionate structure for downsizing, family transitions, and estate moves with practical planning and respectful hands-on support.</p>
+                <a href="estate-transitions.html" class="service-link" style="margin-top:1.25rem; display:inline-block;">Explore Service</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="service-detail">
+        <div style="max-width:1200px; margin:0 auto 3rem;">
+            <div class="section-label">Service Details</div>
+            <h2 class="section-title">Designed around your lifestyle, schedule, and standards.</h2>
+            <p class="section-intro">Every project is tailored to the home and the people living in it. These examples show how each service can be structured.</p>
+        </div>
+        <div class="service-detail">
+            <article class="service-panel" id="luxury-move-in">
+                <div class="service-copy">
+                    <div class="service-kicker">01 · Luxury Move-In</div>
+                    <h2>Arrive to a home that is fully placed, polished, and ready to live in.</h2>
+                    <p>We coordinate with movers, unpack room by room, and create immediate order throughout the home so nothing feels temporary or unfinished.</p>
+                    <p>This service is ideal for new purchases, seasonal residences, executive relocations, and clients who want an elevated transition without the overwhelm.</p>
+                    <ul class="service-list">
+                        <li>Pre-move planning and destination mapping for rooms, closets, and storage</li>
+                        <li>Unpacking, product placement, wardrobe arrangement, and bed-and-bath setup</li>
+                        <li>Kitchen, pantry, and utility zones organized for day-one functionality</li>
+                        <li>Coordination support with movers, designers, and household staff</li>
+                    </ul>
+                    <p><strong>Who this benefits:</strong> Busy homeowners, frequent movers, seasonal residents, and clients who want to walk into a home that already feels complete.</p>
+                    <a href="luxury-move-in.html" class="service-link">Open dedicated page</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1200&q=85&fit=crop" alt="Luxury move-in organization service">
+                </div>
+            </article>
+
+            <article class="service-panel" id="home-organization">
+                <div class="service-copy">
+                    <div class="service-kicker">02 · Home Organization</div>
+                    <h2>Beautiful systems for the spaces you use every day.</h2>
+                    <p>We study how your household moves through the home and build systems that are easy to maintain, visually calm, and specific to your routines.</p>
+                    <p>Closets, pantries, entryways, offices, children's spaces, and back-of-house storage all benefit from a plan that balances elegance with real-life use.</p>
+                    <ul class="service-list">
+                        <li>Closet editing and category-based arrangement for dressing with ease</li>
+                        <li>Kitchen and pantry systems that simplify cooking, hosting, and replenishment</li>
+                        <li>Office, filing, and household command-center organization</li>
+                        <li>Custom labeling, container recommendations, and maintenance guidance</li>
+                    </ul>
+                    <p><strong>Who this benefits:</strong> Families, professionals, and homeowners who want everyday spaces to feel calmer, more efficient, and easier to keep that way.</p>
+                    <a href="home-organization.html" class="service-link">Open dedicated page</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=1200&q=85&fit=crop" alt="Home organization service">
+                </div>
+            </article>
+
+            <article class="service-panel" id="estate-transitions">
+                <div class="service-copy">
+                    <div class="service-kicker">03 · Estate Transitions</div>
+                    <h2>Steady, compassionate support during complex transitions.</h2>
+                    <p>When a move involves downsizing, inherited belongings, or the emotional weight of a major life change, we bring calm structure and respectful decision-making support.</p>
+                    <p>Our role is to reduce stress, protect what matters, and help the next home feel comfortable and familiar from the beginning.</p>
+                    <ul class="service-list">
+                        <li>Sorting and categorizing with sensitivity and a clear decision framework</li>
+                        <li>Downsizing support, donation coordination, and shipment preparation</li>
+                        <li>Packing plans for treasured collections and important household items</li>
+                        <li>Setup and organization in the new home for a gentler first week</li>
+                    </ul>
+                    <p><strong>Who this benefits:</strong> Seniors, adult children, families managing inherited belongings, and anyone navigating a move that needs more care and coordination.</p>
+                    <a href="estate-transitions.html" class="service-link">Open dedicated page</a>
+                </div>
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1200&q=85&fit=crop" alt="Estate transition organizing service">
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="process-wrap">
+            <div class="section-label">How It Works</div>
+            <h2 class="section-title">A refined process that keeps the experience effortless.</h2>
+            <p class="section-intro">We keep communication clear, planning thorough, and execution discreet so your project moves smoothly from consultation to completion.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span class="process-step">Step 01</span>
+                    <h3>Consultation</h3>
+                    <p>We learn about the property, your timeline, and the spaces or transitions that need support.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">Step 02</span>
+                    <h3>Planning</h3>
+                    <p>We shape the scope, gather measurements and priorities, and map out a service plan tailored to the home.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">Step 03</span>
+                    <h3>Transformation</h3>
+                    <p>Our team executes the project with care, discretion, and finishing touches that make the systems feel complete.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="cta-box">
+            <div class="section-label">Begin Your Project</div>
+            <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3.2rem);">Let's create a home that feels composed from the start.</h2>
+            <p class="section-intro" style="margin:0 auto 2rem;">Share your project and Brentwood Organizers will follow up to schedule a complimentary consultation within 24 hours.</p>
+            <a href="consultation.html" class="btn-gold">Request a Consultation</a>
+        </div>
+    </section>
+
+    <footer>
+        <a href="index.html" class="footer-logo">Brentwood Organizers</a>
+        <span class="footer-copy">© 2026 Brentwood Professional Organizers · Miami, FL</span>
+        <ul class="footer-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html">Contact</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

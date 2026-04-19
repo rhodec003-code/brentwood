@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estate Transitions | Brentwood Organizers</title>
+    <meta name="description" content="Estate transition and downsizing support from Brentwood Organizers for thoughtful, compassionate moves throughout Miami.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cream: #faf8f4;
+            --warm-white: #f5f2ed;
+            --sand: #e8e0d4;
+            --stone: #c9bfb0;
+            --charcoal: #2a2520;
+            --warm-gray: #6b6259;
+            --gold: #b8965a;
+            --gold-light: #d4ad73;
+            --text: #2a2520;
+            --text-soft: #5a5149;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3.5rem;
+            background: rgba(250,248,244,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,150,90,0.15);
+        }
+        .nav-logo, .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+        .nav-links, .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links li { position: relative; }
+        .nav-links a, .footer-links a {
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+        }
+        .nav-links a:hover, .footer-links a:hover { color: var(--gold); }
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 0.9rem);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            background: rgba(250,248,244,0.98);
+            border: 1px solid rgba(184,150,90,0.18);
+            box-shadow: 0 22px 45px rgba(42,37,32,0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+        .nav-dropdown a {
+            display: block;
+            padding: 0.8rem 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+        }
+        .nav-item-services:hover .nav-dropdown,
+        .nav-item-services:focus-within .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-cta, .btn-primary, .btn-secondary, .btn-gold {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+        .nav-cta {
+            color: var(--charcoal) !important;
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.4rem;
+        }
+        .nav-cta:hover { background: var(--gold); color: white !important; }
+        section { padding: 6rem 3.5rem; }
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+        .section-intro {
+            font-size: 0.98rem;
+            color: var(--text-soft);
+            max-width: 620px;
+            line-height: 1.85;
+        }
+        .page-hero {
+            background:
+                linear-gradient(120deg, rgba(42,37,32,0.76), rgba(42,37,32,0.32)),
+                url('https://images.unsplash.com/photo-1513694203232-719a280e022f?w=1600&q=85&fit=crop') center/cover;
+            min-height: 74vh;
+            display: flex;
+            align-items: end;
+            padding: 8rem 3.5rem 4rem;
+        }
+        .hero-card {
+            max-width: 760px;
+            background: rgba(250,248,244,0.9);
+            padding: 2.5rem;
+            border: 1px solid rgba(184,150,90,0.22);
+            backdrop-filter: blur(8px);
+        }
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary, .btn-gold {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--charcoal);
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+        .btn-primary:hover, .btn-gold:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--stone);
+            color: var(--charcoal);
+        }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+        .detail-section { background: var(--warm-white); }
+        .detail-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 2rem;
+        }
+        .detail-copy, .detail-side, .process-card, .related-card {
+            background: var(--cream);
+            border: 1px solid rgba(201,191,176,0.7);
+        }
+        .detail-copy, .detail-side { padding: 3rem; }
+        .detail-copy p, .detail-side p, .detail-copy li, .process-card p, .related-card p {
+            font-size: 0.92rem;
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+        .service-list, .detail-side ul {
+            list-style: none;
+            display: grid;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+        }
+        .service-list li, .detail-side li {
+            position: relative;
+            padding-left: 1.3rem;
+        }
+        .service-list li::before, .detail-side li::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+        }
+        .process-section {
+            background: linear-gradient(180deg, #4a433c 0%, #38322d 100%);
+            border-top: 1px solid rgba(184,150,90,0.16);
+            border-bottom: 1px solid rgba(184,150,90,0.16);
+        }
+        .process-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .process-wrap .section-title, .process-wrap .section-intro { color: var(--cream); }
+        .process-wrap .section-intro { color: var(--stone); }
+        .process-grid, .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .process-grid { margin-top: 3rem; }
+        .process-card {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(212,173,115,0.28);
+            padding: 2rem;
+        }
+        .process-card h3, .related-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--cream);
+            margin-bottom: 0.75rem;
+        }
+        .process-card p {
+            color: #f8f4ee;
+        }
+        .process-step {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #f0c98e;
+        }
+        .related-section { background: var(--warm-white); }
+        .related-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .related-grid { margin-top: 2rem; }
+        .related-card {
+            padding: 2rem;
+        }
+        .related-card h3 { color: var(--charcoal); }
+        .related-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 6rem 3.5rem 7rem;
+        }
+        .cta-box {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--warm-white);
+            border: 1px solid rgba(184,150,90,0.18);
+            padding: 3rem;
+        }
+        footer {
+            background: #1a1612;
+            padding: 3rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(184,150,90,0.15);
+        }
+        .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--cream);
+        }
+        .footer-copy {
+            font-size: 0.72rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.06em;
+        }
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            section { padding: 4rem 1.5rem; }
+            .page-hero { min-height: auto; padding: 6.5rem 1.5rem 2rem; }
+            .hero-card, .detail-copy, .detail-side, .cta-box { padding: 2rem; }
+            .detail-layout, .process-grid, .related-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">Brentwood Organizers</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-item-services">
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown">
+                    <a href="luxury-move-in.html">Luxury Move-In</a>
+                    <a href="home-organization.html">Home Organization</a>
+                    <a href="estate-transitions.html">Estate Transitions</a>
+                </div>
+            </li>
+            <li class="nav-item-services">
+                <a href="locations.html">Locations</a>
+                <div class="nav-dropdown">
+                    <a href="bal-harbour.html">Bal Harbour</a>
+                    <a href="boca-raton.html">Boca Raton</a>
+                    <a href="brickell.html">Brickell</a>
+                    <a href="coral-gables.html">Coral Gables</a>
+                    <a href="fort-lauderdale.html">Fort Lauderdale</a>
+                    <a href="miami-springs.html">Miami Springs</a>
+                    <a href="pembroke-pines.html">Pembroke Pines</a>
+                    <a href="west-palm-beach.html">West Palm Beach</a>
+                </div>
+            </li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
+        </ul>
+    </nav>
+    <section class="page-hero">
+        <div class="hero-card">
+            <div class="section-label">03 · Signature Service</div>
+            <h1 class="section-title">Estate Transitions handled with care, structure, and discretion.</h1>
+            <p class="section-intro">When a move carries emotional weight, Brentwood Organizers brings calm guidance, practical sorting support, and a clear process that helps the next chapter begin with less stress.</p>
+            <div class="hero-actions">
+                <a href="consultation.html?service=Estate%20Transitions" class="btn-primary">Book This Service</a>
+                <a href="services.html" class="btn-secondary">View All Services</a>
+            </div>
+        </div>
+    </section>
+    <section class="detail-section">
+        <div class="detail-layout">
+            <div class="detail-copy">
+                <div class="section-label">What Is Included</div>
+                <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3rem);">Support for the practical and emotional sides of a move.</h2>
+                <p>Estate transitions often require more than logistics. We help clients move through sorting, decisions, packing, and setup in a way that protects what matters and reduces overwhelm.</p>
+                <p>Our team works carefully and respectfully, bringing structure to complex belongings, sensitive timelines, and the many details that can otherwise become exhausting to manage alone. The goal is to make the next home feel safe, simple, and familiar from day one.</p>
+                <ul class="service-list">
+                    <li>Sorting and categorizing with a steady, respectful decision framework</li>
+                    <li>Downsizing support for keepsakes, collections, furniture, and household items</li>
+                    <li>Donation coordination, auction-prep support, and itemized next-step planning</li>
+                    <li>Floor-plan mapping, packing guidance, and move-day oversight</li>
+                    <li>Safety-first setup in the new home, including reachable placement and clear pathways</li>
+                </ul>
+            </div>
+            <aside class="detail-side">
+                <div class="section-label">Best For</div>
+                <h2 class="section-title" style="font-size:clamp(1.7rem, 2.5vw, 2.3rem);">When this service is most valuable.</h2>
+                <p>Estate Transitions is designed for moves that involve change on more than a logistical level and benefit from both structure and compassion. It is especially valuable when multiple family members need visibility without making the process feel more stressful.</p>
+                <ul>
+                    <li>Downsizing into a smaller home or condominium</li>
+                    <li>Family transitions involving inherited or deeply personal belongings</li>
+                    <li>Moves that require careful decision-making over time</li>
+                    <li>Clients who want the next home to feel familiar and settled quickly</li>
+                    <li>Adult children or remote family members who need updates and coordination</li>
+                </ul>
+                <p style="margin-top:1.25rem;"><strong>Who this benefits:</strong> Families who need a calmer, more supported way to navigate sensitive moves without carrying every detail alone.</p>
+            </aside>
+        </div>
+    </section>
+    <section class="process-section">
+        <div class="process-wrap">
+            <div class="section-label">The Process</div>
+            <h2 class="section-title">A calm framework for a complicated chapter.</h2>
+            <p class="section-intro">This page keeps Brentwood's most important transition details front and center: gentle decision support, family coordination, practical logistics, and a safe setup in the new home.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span class="process-step">Step 01</span>
+                    <h3>Sort</h3>
+                    <p>We help identify what stays, what moves, what may be donated or sold, and what needs extra care.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">Step 02</span>
+                    <h3>Coordinate</h3>
+                    <p>We support the packing, donations, shipments, family updates, and logistics that keep the transition moving forward.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">Step 03</span>
+                    <h3>Settle</h3>
+                    <p>We help shape the new home so essential belongings feel familiar, accessible, and thoughtfully placed from the start.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="related-section">
+        <div class="related-wrap">
+            <div class="section-label">Other Services</div>
+            <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3rem);">Explore the rest of the Brentwood offerings.</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <h3>Luxury Move-In</h3>
+                    <p>Set up a new home with polish, purpose, and day-one functionality.</p>
+                    <a href="luxury-move-in.html" class="related-link">View Service</a>
+                </div>
+                <div class="related-card">
+                    <h3>Home Organization</h3>
+                    <p>Create sustainable systems for closets, kitchens, offices, and storage spaces.</p>
+                    <a href="home-organization.html" class="related-link">View Service</a>
+                </div>
+                <div class="related-card">
+                    <h3>All Services</h3>
+                    <p>See the full service hub and compare each Brentwood specialty.</p>
+                    <a href="services.html" class="related-link">Open Services Hub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section" id="contact">
+        <div class="cta-box">
+            <div class="section-label">Begin Your Project</div>
+            <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3.2rem);">Need a steadier, more supported transition?</h2>
+            <p class="section-intro" style="margin:0 auto 2rem;">Share a few details about your transition and Brentwood Organizers will follow up to discuss the next steps.</p>
+            <a href="consultation.html?service=Estate%20Transitions" class="btn-gold">Request a Consultation</a>
+        </div>
+    </section>
+    <footer>
+        <a href="index.html" class="footer-logo">Brentwood Organizers</a>
+        <span class="footer-copy">© 2026 Brentwood Professional Organizers · Miami, FL</span>
+        <ul class="footer-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html">Contact</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

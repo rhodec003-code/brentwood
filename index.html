@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brentwood Organizers — Luxury Home Organization Miami</title>
+    <meta name="description" content="White-glove home organization for Miami's most discerning homes. Expert move-in organizing, downsizing, and relocation services in Coral Gables, Brickell, Miami Beach & Coconut Grove.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #faf8f4;
+            --warm-white: #f5f2ed;
+            --sand: #e8e0d4;
+            --stone: #c9bfb0;
+            --charcoal: #2a2520;
+            --warm-gray: #6b6259;
+            --light-gray: #9c9289;
+            --gold: #b8965a;
+            --gold-light: #d4ad73;
+            --text: #2a2520;
+            --text-soft: #5a5149;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3.5rem;
+            background: rgba(250,248,244,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,150,90,0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--charcoal);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 0.9rem);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            background: rgba(250,248,244,0.98);
+            border: 1px solid rgba(184,150,90,0.18);
+            box-shadow: 0 22px 45px rgba(42,37,32,0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+
+        .nav-dropdown a {
+            display: block;
+            padding: 0.8rem 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+        }
+
+        .nav-item-services:hover .nav-dropdown,
+        .nav-item-services:focus-within .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-cta {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--charcoal) !important;
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.4rem;
+            border-radius: 0;
+            transition: all 0.2s !important;
+        }
+
+        .nav-cta:hover { background: var(--gold) !important; color: white !important; }
+
+        /* ── HERO ── */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 5rem 5rem 5rem;
+        }
+
+        .hero-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.8rem, 4vw, 4.5rem);
+            font-weight: 300;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--charcoal);
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero-desc {
+            font-size: 1rem;
+            color: var(--text-soft);
+            max-width: 420px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            background: var(--charcoal);
+            color: var(--cream);
+            text-decoration: none;
+            border: 1px solid var(--charcoal);
+            transition: all 0.25s;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover { background: var(--gold); border-color: var(--gold); }
+
+        .btn-secondary {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--charcoal);
+            text-decoration: none;
+            border: 1px solid var(--stone);
+            transition: all 0.25s;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+        .hero-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-image-caption {
+            position: absolute;
+            bottom: 2rem;
+            left: 2rem;
+            font-size: 0.68rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* ── TRUST BAR ── */
+        .trust-bar {
+            background: var(--charcoal);
+            padding: 1.5rem 3.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            font-size: 0.68rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--stone);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .trust-item::before {
+            content: '—';
+            color: var(--gold);
+        }
+
+        /* ── SECTION COMMON ── */
+        section { padding: 6rem 3.5rem; }
+
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3vw, 3rem);
+            font-weight: 300;
+            line-height: 1.2;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+
+        .section-intro {
+            font-size: 0.975rem;
+            color: var(--text-soft);
+            max-width: 560px;
+            line-height: 1.85;
+        }
+
+        /* ── SERVICES ── */
+        .services-section {
+            background: var(--warm-white);
+            max-width: 100%;
+        }
+
+        .services-header {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5px;
+            background: var(--sand);
+        }
+
+        .service-card {
+            background: var(--warm-white);
+            padding: 3rem 2.5rem;
+            transition: background 0.3s;
+        }
+
+        .service-card:hover { background: var(--cream); }
+
+        .service-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--sand);
+            line-height: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .service-desc {
+            font-size: 0.875rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-link {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-link::after { content: '→'; transition: transform 0.2s; }
+        .service-card:hover .service-link::after { transform: translateX(4px); }
+
+        /* ── BEFORE/AFTER ── */
+        .gallery-section { background: var(--cream); }
+
+        .gallery-header {
+            max-width: 1200px;
+            margin: 0 auto 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .gallery-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 1rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            background: var(--sand);
+        }
+
+        .gallery-item:first-child {
+            grid-column: 1 / 3;
+            grid-row: 1;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+            min-height: 280px;
+        }
+
+        .gallery-item:first-child img { min-height: 420px; }
+
+        .gallery-item:hover img { transform: scale(1.03); }
+
+        .gallery-label {
+            position: absolute;
+            bottom: 1rem;
+            left: 1rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            background: rgba(42,37,32,0.7);
+            color: rgba(255,255,255,0.85);
+            padding: 0.35rem 0.75rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ── PHILOSOPHY ── */
+        .philosophy-section {
+            background: var(--charcoal);
+            display: flex;
+            align-items: center;
+            gap: 6rem;
+            max-width: 100%;
+        }
+
+        .philosophy-image {
+            flex: 1;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        .philosophy-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            min-height: 500px;
+        }
+
+        .philosophy-text { flex: 1; padding: 2rem 0; }
+
+        .philosophy-text .section-label { color: var(--gold-light); }
+
+        .philosophy-text .section-title { color: var(--cream); }
+
+        .philosophy-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 300;
+            font-style: italic;
+            color: var(--cream);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            border-left: 2px solid var(--gold);
+            padding-left: 1.5rem;
+        }
+
+        .philosophy-body {
+            font-size: 0.9rem;
+            color: var(--stone);
+            line-height: 1.9;
+        }
+
+        /* ── TESTIMONIALS ── */
+        .testimonials-section { background: var(--warm-white); }
+
+        .testimonials-header {
+            max-width: 1200px;
+            margin: 0 auto 3.5rem;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background: var(--cream);
+            padding: 2.5rem;
+            border-top: 2px solid var(--gold);
+        }
+
+        .testimonial-quote {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--charcoal);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+        }
+
+        .testimonial-role {
+            font-size: 0.72rem;
+            color: var(--light-gray);
+            margin-top: 0.2rem;
+        }
+
+        /* ── NEIGHBORHOODS ── */
+        .neighborhoods-section {
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .neighborhoods-section .section-title,
+        .neighborhoods-section .section-label { text-align: center; }
+
+        .neighborhoods-section .section-intro {
+            margin: 0 auto 3rem;
+            text-align: center;
+        }
+
+        .neighborhoods-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .neighborhood-tag {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            padding: 0.65rem 1.5rem;
+            border: 1px solid var(--stone);
+            color: var(--warm-gray);
+            cursor: default;
+            transition: all 0.2s;
+        }
+
+        .neighborhood-tag:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* ── REQUEST FORM ── */
+        .request-section {
+            background: var(--warm-white);
+        }
+
+        .request-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .request-card,
+        .request-side {
+            background: var(--cream);
+            border: 1px solid rgba(184,150,90,0.18);
+        }
+
+        .request-card {
+            padding: 3rem;
+        }
+
+        .request-form {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem 1.25rem;
+        }
+
+        .request-field {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .request-field.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .request-field label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+        }
+
+        .request-field input,
+        .request-field select,
+        .request-field textarea {
+            width: 100%;
+            border: 1px solid var(--sand);
+            background: white;
+            color: var(--text);
+            padding: 0.95rem 1rem;
+            font: inherit;
+        }
+
+        .request-field input:focus,
+        .request-field select:focus,
+        .request-field textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .request-field textarea {
+            min-height: 170px;
+            resize: vertical;
+        }
+
+        .request-note {
+            grid-column: 1 / -1;
+            font-size: 0.83rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+        }
+
+        .request-side {
+            padding: 2.5rem;
+        }
+
+        .request-side-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .request-side-copy {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-areas {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.6rem 1rem;
+            list-style: none;
+            margin: 1.5rem 0 2rem;
+        }
+
+        .service-areas li {
+            font-size: 0.8rem;
+            color: var(--warm-gray);
+            position: relative;
+            padding-left: 1rem;
+        }
+
+        .service-areas li::before {
+            content: '';
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0.65rem;
+        }
+
+        .contact-lines {
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .contact-lines a,
+        .contact-lines span {
+            font-size: 0.86rem;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .contact-lines a:hover { color: var(--gold); }
+
+        /* ── CTA ── */
+        .cta-section {
+            background: var(--charcoal);
+            text-align: center;
+            padding: 7rem 3.5rem;
+        }
+
+        .cta-section .section-label { color: var(--gold-light); text-align: center; }
+
+        .cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 300;
+            color: var(--cream);
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-desc {
+            font-size: 0.95rem;
+            color: var(--stone);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+        }
+
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .btn-gold {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            transition: all 0.25s;
+            cursor: pointer;
+        }
+
+        .btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); }
+
+        .btn-outline-light {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            color: var(--cream);
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.25);
+            transition: all 0.25s;
+            cursor: pointer;
+        }
+
+        .btn-outline-light:hover { border-color: var(--gold); color: var(--gold); }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #1a1612;
+            padding: 3rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(184,150,90,0.15);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--cream);
+            text-decoration: none;
+        }
+
+        .footer-copy {
+            font-size: 0.72rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.06em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover { color: var(--gold); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            .hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-text { padding: 7rem 2rem 3rem; }
+            .hero-image { height: 50vh; }
+            section { padding: 4rem 1.5rem; }
+            .services-grid,
+            .testimonials-grid,
+            .request-layout,
+            .request-form { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr 1fr; }
+            .gallery-item:first-child { grid-column: 1 / 3; }
+            .philosophy-section { flex-direction: column; gap: 0; padding: 0; }
+            .philosophy-image { min-height: 300px; }
+            .philosophy-text { padding: 3rem 2rem; }
+            .trust-bar { gap: 1.5rem; padding: 1.25rem 1.5rem; }
+            .request-card,
+            .request-side { padding: 2rem; }
+            .service-areas { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="#" class="nav-logo">Brentwood Organizers</a>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-item-services">
+            <a href="services.html">Services</a>
+            <div class="nav-dropdown">
+                <a href="luxury-move-in.html">Luxury Move-In</a>
+                <a href="home-organization.html">Home Organization</a>
+                <a href="estate-transitions.html">Estate Transitions</a>
+            </div>
+        </li>
+        <li class="nav-item-services">
+            <a href="locations.html">Locations</a>
+            <div class="nav-dropdown">
+                <a href="bal-harbour.html">Bal Harbour</a>
+                <a href="boca-raton.html">Boca Raton</a>
+                <a href="brickell.html">Brickell</a>
+                <a href="coral-gables.html">Coral Gables</a>
+                <a href="fort-lauderdale.html">Fort Lauderdale</a>
+                <a href="miami-springs.html">Miami Springs</a>
+                <a href="pembroke-pines.html">Pembroke Pines</a>
+                <a href="west-palm-beach.html">West Palm Beach</a>
+            </div>
+        </li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
+    </ul>
+</nav>
+
+<!-- Hero -->
+<section class="hero" style="padding:0;">
+    <div class="hero-text">
+        <div class="hero-eyebrow">White-Glove Home Organization · Miami</div>
+        <h1 class="hero-title">
+            Your home,<br>
+            <em>curated</em><br>
+            to perfection.
+        </h1>
+        <p class="hero-desc">
+            We bring order, elegance, and intention to Miami's finest homes.
+            From luxury move-ins to estate transitions — every detail handled,
+            every space transformed.
+        </p>
+        <div>
+            <a href="consultation.html" class="btn-primary">Request a Consultation</a>
+            <a href="services.html" class="btn-secondary">View Services</a>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85&fit=crop" alt="Luxury organized closet">
+        <span class="hero-image-caption">Brickell Residence · Move-In Organization</span>
+    </div>
+</section>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+    <span class="trust-item">Serving Miami-Dade & Broward</span>
+    <span class="trust-item">Fully Insured · COI Available</span>
+    <span class="trust-item">Coral Gables · Brickell · Miami Beach · Coconut Grove</span>
+    <span class="trust-item">Realtor Preferred Partner</span>
+</div>
+
+<!-- Services -->
+<section class="services-section" id="services">
+    <div class="services-header">
+        <div>
+            <div class="section-label">What We Do</div>
+            <h2 class="section-title">Expert care for<br>every transition.</h2>
+        </div>
+        <p class="section-intro">From your first walk-through to your first morning at home — we manage every detail so you never have to.</p>
+    </div>
+    <div class="services-grid">
+        <div class="service-card">
+            <div class="service-number">01</div>
+            <div class="service-name">Luxury Move-In</div>
+            <p class="service-desc">Full unpacking, placement, and styling of your new home. Beds made, kitchen stocked, wardrobe arranged — all before you arrive. We coordinate with your movers and building management.</p>
+            <a href="luxury-move-in.html" class="service-link">View Details</a>
+        </div>
+        <div class="service-card">
+            <div class="service-number">02</div>
+            <div class="service-name">Home Organization</div>
+            <p class="service-desc">A tailored system built around how you actually live. Closets, pantries, home offices, and storage spaces transformed into functional, beautiful order — and maintained that way.</p>
+            <a href="home-organization.html" class="service-link">View Details</a>
+        </div>
+        <div class="service-card">
+            <div class="service-number">03</div>
+            <div class="service-name">Estate Transitions</div>
+            <p class="service-desc">Gentle, expert support for downsizing and estate moves. We guide every decision, coordinate the logistics, and ensure the next home feels familiar from day one.</p>
+            <a href="estate-transitions.html" class="service-link">View Details</a>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery -->
+<section class="gallery-section" id="gallery">
+    <div class="gallery-header">
+        <div>
+            <div class="section-label">Portfolio</div>
+            <h2 class="section-title">The transformation<br>speaks for itself.</h2>
+        </div>
+        <p class="section-intro" style="max-width:380px">Every project is approached as a collaboration. We listen, we plan, we execute — and we don't leave until it's perfect.</p>
+    </div>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1400&q=85&fit=crop" alt="Luxury kitchen pantry organization">
+            <span class="gallery-label">Coral Gables · Kitchen & Pantry</span>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85&fit=crop" alt="Walk-in closet organization">
+            <span class="gallery-label">Miami Beach · Master Closet</span>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&q=85&fit=crop" alt="Organized home office">
+            <span class="gallery-label">Brickell · Home Office</span>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1615529489011-1b7cbc3a1e89?w=800&q=85&fit=crop" alt="Linen closet organization">
+            <span class="gallery-label">Coconut Grove · Linen & Bath</span>
+        </div>
+        <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=85&fit=crop" alt="Living space organization">
+            <span class="gallery-label">Key Biscayne · Full Home</span>
+        </div>
+    </div>
+</section>
+
+<!-- Philosophy / About -->
+<section class="philosophy-section" id="about" style="padding:0;">
+    <div class="philosophy-image">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=85&fit=crop" alt="Rhode, founder of Brentwood Organizers">
+    </div>
+    <div class="philosophy-text" style="padding: 4rem 5rem;">
+        <div class="section-label">About Rhode</div>
+        <h2 class="section-title" style="color: var(--cream);">It's not about<br>getting rid of things.</h2>
+        <div class="philosophy-quote">
+            "It's about helping you find what's essential to you — and building a home that reflects the life you want to live."
+        </div>
+        <p class="philosophy-body">
+            Rhode founded Brentwood Organizers with a simple conviction: your home should work for you, not against you.
+            With an eye for detail and a deep respect for the people and spaces she serves, Rhode and her team bring
+            professionalism, discretion, and genuine care to every project.
+        </p>
+        <p class="philosophy-body" style="margin-top: 1rem;">
+            Fully insured. Experienced with luxury residences, high-value collections, and estate transitions throughout Miami-Dade and Broward.
+        </p>
+        <a href="consultation.html" class="btn-gold" style="margin-top:2rem; display:inline-block;">Book a Consultation</a>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials-section" id="testimonials">
+    <div class="testimonials-header">
+        <div class="section-label">Client Stories</div>
+        <h2 class="section-title">Trusted by Miami's<br>most discerning homes.</h2>
+    </div>
+    <div class="testimonials-grid">
+        <div class="testimonial-card">
+            <p class="testimonial-quote">"Rhode was a lifesaver. She assisted with unpacking and organizing everything so efficiently that storage spaces that seemed small were more than sufficient. I will recommend her to all my buyers and sellers."</p>
+            <div class="testimonial-author">Courtney Russell</div>
+            <div class="testimonial-role">Licensed Realtor · Miami</div>
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-quote">"Rhode is responsive, kind, and attentive. She has a vision and skill with clutter beyond my imagination. I think highly of her as a person all-around because of how well she treats her clients."</p>
+            <div class="testimonial-author">Jonathan Rosa</div>
+            <div class="testimonial-role">Luxury Real Estate Agent · Miami</div>
+        </div>
+        <div class="testimonial-card">
+            <p class="testimonial-quote">"My wife passed away, leaving a collection of over 1,500 dolls. Rhode and her team packaged the entire collection into boxes and prepared it for shipment. I highly recommend Rhode and her Brentwood team."</p>
+            <div class="testimonial-author">Gunther Karger</div>
+            <div class="testimonial-role">Client · Miami Beach</div>
+        </div>
+    </div>
+</section>
+
+<!-- Neighborhoods -->
+<section class="neighborhoods-section">
+    <div class="section-label">Service Areas</div>
+    <h2 class="section-title">Miami's finest neighborhoods,<br><em style="font-family:'Cormorant Garamond',serif;">beautifully organized.</em></h2>
+    <p class="section-intro">We serve luxury residences, condominiums, and estates throughout Miami-Dade and Broward County.</p>
+    <div class="neighborhoods-list">
+        <span class="neighborhood-tag">Coral Gables</span>
+        <span class="neighborhood-tag">Brickell</span>
+        <span class="neighborhood-tag">Miami Beach</span>
+        <span class="neighborhood-tag">Coconut Grove</span>
+        <span class="neighborhood-tag">Key Biscayne</span>
+        <span class="neighborhood-tag">Pinecrest</span>
+        <span class="neighborhood-tag">South Miami</span>
+        <span class="neighborhood-tag">Aventura</span>
+        <span class="neighborhood-tag">Bal Harbour</span>
+        <span class="neighborhood-tag">Fort Lauderdale</span>
+    </div>
+    <a href="consultation.html" class="btn-primary">Request a Consultation</a>
+</section>
+
+<!-- Request More Information -->
+<section class="request-section" id="contact">
+    <div class="request-layout">
+        <div class="request-card">
+            <div class="section-label">Request More Information</div>
+            <h2 class="section-title">Tell us about your project.</h2>
+            <p class="section-intro">We're so excited you're interested in learning more about our services. Please fill out the form to share more information about your project and we will reach out to you shortly.</p>
+            <form class="request-form" id="requestForm">
+                <div class="request-field">
+                    <label for="full-name">Full Name</label>
+                    <input id="full-name" name="Full Name" type="text" required>
+                </div>
+                <div class="request-field">
+                    <label for="email">Email</label>
+                    <input id="email" name="Email" type="email" required>
+                </div>
+                <div class="request-field">
+                    <label for="phone">Phone</label>
+                    <input id="phone" name="Phone" type="tel">
+                </div>
+                <div class="request-field">
+                    <label for="service">Service Needed</label>
+                    <select id="service" name="Service Needed" required>
+                        <option value="">Select a service</option>
+                        <option>Luxury Move-In</option>
+                        <option>Home Organization</option>
+                        <option>Estate Transitions</option>
+                        <option>Multiple Services</option>
+                    </select>
+                </div>
+                <div class="request-field">
+                    <label for="location">Project Location</label>
+                    <input id="location" name="Project Location" type="text" placeholder="City or neighborhood">
+                </div>
+                <div class="request-field">
+                    <label for="timeline">Ideal Timeline</label>
+                    <input id="timeline" name="Ideal Timeline" type="text" placeholder="As soon as possible, next month, etc.">
+                </div>
+                <div class="request-field full-width">
+                    <label for="details">Project Details</label>
+                    <textarea id="details" name="Project Details" placeholder="Share a few details about the home, rooms involved, and what kind of support you need." required></textarea>
+                </div>
+                <p class="request-note">Submitting opens your email app with the inquiry prefilled so Brentwood Organizers can respond directly.</p>
+                <div class="request-field full-width">
+                    <button type="submit" class="btn-primary">Send Request</button>
+                </div>
+            </form>
+        </div>
+        <aside class="request-side">
+            <div class="section-label">Service Areas</div>
+            <h3 class="request-side-title">Serving Miami and surrounding areas.</h3>
+            <p class="request-side-copy">Based on the live Brentwood Organizers site, these are the areas currently highlighted for inquiries and consultations.</p>
+            <ul class="service-areas">
+                <li>Aventura</li>
+                <li>Bal Harbour</li>
+                <li>Boca Raton</li>
+                <li>Brickell</li>
+                <li>Broward County</li>
+                <li>Coconut Grove</li>
+                <li>Coral Gables</li>
+                <li>Doral</li>
+                <li>Fort Lauderdale</li>
+                <li>Hollywood</li>
+                <li>Miami Beach</li>
+                <li>Miami-Dade</li>
+                <li>Palm Beach Gardens</li>
+                <li>Parkland</li>
+                <li>Pinecrest</li>
+                <li>Southwest Ranches</li>
+                <li>West Palm Beach</li>
+                <li>Ask About Your Area</li>
+            </ul>
+            <div class="section-label" style="margin-top:0;">Get Connected</div>
+            <div class="contact-lines">
+                <a href="tel:+14243940619">+1 (424) 394-0619</a>
+            </div>
+        </aside>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+    <div class="section-label">Get Started</div>
+    <h2 class="cta-title">Ready for a home that works as beautifully as it looks?</h2>
+    <p class="cta-desc">Every engagement begins with a complimentary consultation. Share your project and we'll reach out within 24 hours.</p>
+    <div class="cta-buttons">
+        <a href="consultation.html" class="btn-gold">Request a Consultation</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <a href="#" class="footer-logo">Brentwood Organizers</a>
+    <span class="footer-copy">© 2026 Brentwood Professional Organizers · Miami, FL</span>
+    <ul class="footer-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="consultation.html">Contact</a></li>
+    </ul>
+</footer>
+
+<script>
+    const requestForm = document.getElementById('requestForm');
+
+    if (requestForm) {
+        requestForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(requestForm);
+            const subject = 'Request More Information';
+            const body = [
+                'Full Name: ' + (formData.get('Full Name') || ''),
+                'Email: ' + (formData.get('Email') || ''),
+                'Phone: ' + (formData.get('Phone') || ''),
+                'Service Needed: ' + (formData.get('Service Needed') || ''),
+                'Project Location: ' + (formData.get('Project Location') || ''),
+                'Ideal Timeline: ' + (formData.get('Ideal Timeline') || ''),
+                '',
+                'Project Details:',
+                formData.get('Project Details') || ''
+            ].join('\n');
+
+            window.location.href = 'mailto:info@brentwoodorganizers.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+        });
+    }
+</script>
+
+</body>
+</html>

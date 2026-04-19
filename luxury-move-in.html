@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Move-In | Brentwood Organizers</title>
+    <meta name="description" content="Luxury move-in organization for Miami homes, including unpacking, placement, styling, and day-one setup by Brentwood Organizers.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cream: #faf8f4;
+            --warm-white: #f5f2ed;
+            --sand: #e8e0d4;
+            --stone: #c9bfb0;
+            --charcoal: #2a2520;
+            --warm-gray: #6b6259;
+            --gold: #b8965a;
+            --gold-light: #d4ad73;
+            --text: #2a2520;
+            --text-soft: #5a5149;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3.5rem;
+            background: rgba(250,248,244,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,150,90,0.15);
+        }
+        .nav-logo, .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+        .nav-links, .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links li { position: relative; }
+        .nav-links a, .footer-links a {
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+        }
+        .nav-links a:hover, .footer-links a:hover { color: var(--gold); }
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 0.9rem);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            background: rgba(250,248,244,0.98);
+            border: 1px solid rgba(184,150,90,0.18);
+            box-shadow: 0 22px 45px rgba(42,37,32,0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+        .nav-dropdown a {
+            display: block;
+            padding: 0.8rem 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+        }
+        .nav-item-services:hover .nav-dropdown,
+        .nav-item-services:focus-within .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-cta, .btn-primary, .btn-secondary, .btn-gold {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+        .nav-cta {
+            color: var(--charcoal) !important;
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.4rem;
+        }
+        .nav-cta:hover { background: var(--gold); color: white !important; }
+        section { padding: 6rem 3.5rem; }
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+        .section-intro {
+            font-size: 0.98rem;
+            color: var(--text-soft);
+            max-width: 620px;
+            line-height: 1.85;
+        }
+        .page-hero {
+            background:
+                linear-gradient(120deg, rgba(42,37,32,0.76), rgba(42,37,32,0.32)),
+                url('https://images.unsplash.com/photo-1600607687644-c7171b42498f?w=1600&q=85&fit=crop') center/cover;
+            min-height: 74vh;
+            display: flex;
+            align-items: end;
+            padding: 8rem 3.5rem 4rem;
+        }
+        .hero-card {
+            max-width: 760px;
+            background: rgba(250,248,244,0.9);
+            padding: 2.5rem;
+            border: 1px solid rgba(184,150,90,0.22);
+            backdrop-filter: blur(8px);
+        }
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary, .btn-gold {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--charcoal);
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+        .btn-primary:hover, .btn-gold:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--stone);
+            color: var(--charcoal);
+        }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+        .detail-section { background: var(--warm-white); }
+        .detail-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+        .detail-copy, .detail-side, .process-card, .related-card {
+            background: var(--cream);
+            border: 1px solid rgba(201,191,176,0.7);
+        }
+        .detail-copy, .detail-side { padding: 3rem; }
+        .detail-copy p, .detail-side p, .detail-copy li, .process-card p, .related-card p {
+            font-size: 0.92rem;
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+        .service-list, .detail-side ul {
+            list-style: none;
+            display: grid;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+        }
+        .service-list li, .detail-side li {
+            position: relative;
+            padding-left: 1.3rem;
+        }
+        .service-list li::before, .detail-side li::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+        }
+        .process-section {
+            background: linear-gradient(180deg, #4a433c 0%, #38322d 100%);
+            border-top: 1px solid rgba(184,150,90,0.16);
+            border-bottom: 1px solid rgba(184,150,90,0.16);
+        }
+        .process-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .process-wrap .section-title, .process-wrap .section-intro { color: var(--cream); }
+        .process-wrap .section-intro { color: var(--stone); }
+        .process-grid, .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .process-grid { margin-top: 3rem; }
+        .process-card {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(212,173,115,0.28);
+            padding: 2rem;
+        }
+        .process-card h3, .related-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--cream);
+            margin-bottom: 0.75rem;
+        }
+        .process-card p {
+            color: #f8f4ee;
+        }
+        .process-step {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #f0c98e;
+        }
+        .related-section { background: var(--warm-white); }
+        .related-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .related-grid { margin-top: 2rem; }
+        .related-card {
+            padding: 2rem;
+        }
+        .related-card h3 {
+            color: var(--charcoal);
+        }
+        .related-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 6rem 3.5rem 7rem;
+        }
+        .cta-box {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--warm-white);
+            border: 1px solid rgba(184,150,90,0.18);
+            padding: 3rem;
+        }
+        footer {
+            background: #1a1612;
+            padding: 3rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(184,150,90,0.15);
+        }
+        .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--cream);
+        }
+        .footer-copy {
+            font-size: 0.72rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.06em;
+        }
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            section { padding: 4rem 1.5rem; }
+            .page-hero { min-height: auto; padding: 6.5rem 1.5rem 2rem; }
+            .hero-card, .detail-copy, .detail-side, .cta-box { padding: 2rem; }
+            .detail-layout, .process-grid, .related-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">Brentwood Organizers</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="nav-item-services">
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown">
+                    <a href="luxury-move-in.html">Luxury Move-In</a>
+                    <a href="home-organization.html">Home Organization</a>
+                    <a href="estate-transitions.html">Estate Transitions</a>
+                </div>
+            </li>
+            <li class="nav-item-services">
+                <a href="locations.html">Locations</a>
+                <div class="nav-dropdown">
+                    <a href="bal-harbour.html">Bal Harbour</a>
+                    <a href="boca-raton.html">Boca Raton</a>
+                    <a href="brickell.html">Brickell</a>
+                    <a href="coral-gables.html">Coral Gables</a>
+                    <a href="fort-lauderdale.html">Fort Lauderdale</a>
+                    <a href="miami-springs.html">Miami Springs</a>
+                    <a href="pembroke-pines.html">Pembroke Pines</a>
+                    <a href="west-palm-beach.html">West Palm Beach</a>
+                </div>
+            </li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
+        </ul>
+    </nav>
+    <section class="page-hero">
+        <div class="hero-card">
+            <div class="section-label">01 · Signature Service</div>
+            <h1 class="section-title">Luxury Move-In that makes the first day feel finished.</h1>
+            <p class="section-intro">From pre-move planning to final placement, Brentwood Organizers prepares your new home so it feels functional, elegant, and lived-in ready from the moment you walk through the door.</p>
+            <div class="hero-actions">
+                <a href="consultation.html?service=Luxury%20Move-In" class="btn-primary">Book This Service</a>
+                <a href="services.html" class="btn-secondary">View All Services</a>
+            </div>
+        </div>
+    </section>
+    <section class="detail-section">
+        <div class="detail-layout">
+            <div class="detail-copy">
+                <div class="section-label">What Is Included</div>
+                <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3rem);">A refined move-in experience with nothing left half-done.</h2>
+                <p>We step in before the move starts to feel chaotic. Brentwood plans room-by-room destinations, reviews floor plans, coordinates with movers and building management, and creates immediate order in the spaces that matter most.</p>
+                <p>Instead of living out of boxes for weeks, you arrive to wardrobes arranged, beds made, kitchen essentials accessible, and the home already working the way it should. The goal is simple: you should feel settled fast.</p>
+                <ul class="service-list">
+                    <li>Pre-move planning, timeline review, and destination mapping for each room</li>
+                    <li>Packing-material guidance, box mapping, and category-based unpacking support</li>
+                    <li>On-site coordination with movers, building staff, and household vendors</li>
+                    <li>Priority-area setup first, including beds, bath, kitchen, closets, and essentials</li>
+                    <li>Labels, product recommendations, and styling touches that make the home feel finished</li>
+                </ul>
+            </div>
+            <aside class="detail-side">
+                <div class="section-label">Best For</div>
+                <h2 class="section-title" style="font-size:clamp(1.7rem, 2.5vw, 2.3rem);">Who this service helps most.</h2>
+                <p>Luxury Move-In is ideal for clients who want a seamless arrival experience and prefer their home to be calm, orderly, and fully usable from the start. It is especially helpful when there are many moving parts and no time to manage them personally.</p>
+                <ul>
+                    <li>New homeowners preparing for a smooth first week</li>
+                    <li>Executive relocations and high-touch family moves</li>
+                    <li>Seasonal residences needing full setup before arrival</li>
+                    <li>Clients coordinating movers, designers, and vendors at once</li>
+                    <li>Traveling clients who need the team to work independently after approvals</li>
+                </ul>
+                <p style="margin-top:1.25rem;"><strong>Who this benefits:</strong> Anyone who wants to skip the box-filled transition period and start living comfortably in the home right away.</p>
+            </aside>
+        </div>
+    </section>
+    <section class="process-section">
+        <div class="process-wrap">
+            <div class="section-label">The Process</div>
+            <h2 class="section-title">Clear planning. Quiet execution. A home ready on arrival.</h2>
+            <p class="section-intro">Inspired by the clarity of concierge relocation services but grounded in Brentwood's own move-in support process, every detail is handled in sequence so your move feels intentional instead of overwhelming.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span class="process-step">Step 01</span>
+                    <h3>Plan</h3>
+                    <p>We review the property, timeline, priorities, access needs, and how each space should function once complete.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">Step 02</span>
+                    <h3>Settle</h3>
+                    <p>We coordinate arrivals, oversee day-of logistics, unpack by category, and place items where they belong from the start.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">Step 03</span>
+                    <h3>Finish</h3>
+                    <p>The home is styled, essentials are accessible, and systems are established so daily life begins smoothly and stays manageable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="related-section">
+        <div class="related-wrap">
+            <div class="section-label">Other Services</div>
+            <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3rem);">Explore the rest of the collection.</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <h3>Home Organization</h3>
+                    <p>Build elegant, maintainable systems for the spaces you use every day.</p>
+                    <a href="home-organization.html" class="related-link">View Service</a>
+                </div>
+                <div class="related-card">
+                    <h3>Estate Transitions</h3>
+                    <p>Receive structured, compassionate support during downsizing and major moves.</p>
+                    <a href="estate-transitions.html" class="related-link">View Service</a>
+                </div>
+                <div class="related-card">
+                    <h3>All Services</h3>
+                    <p>See the full Brentwood Organizers service overview in one place.</p>
+                    <a href="services.html" class="related-link">Open Services Hub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section" id="contact">
+        <div class="cta-box">
+            <div class="section-label">Begin Your Project</div>
+            <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3.2rem);">Ready to arrive to a home that already feels complete?</h2>
+            <p class="section-intro" style="margin:0 auto 2rem;">Share your move-in timeline and Brentwood Organizers will follow up to schedule a complimentary consultation.</p>
+            <a href="consultation.html?service=Luxury%20Move-In" class="btn-gold">Request a Consultation</a>
+        </div>
+    </section>
+    <footer>
+        <a href="index.html" class="footer-logo">Brentwood Organizers</a>
+        <span class="footer-copy">© 2026 Brentwood Professional Organizers · Miami, FL</span>
+        <ul class="footer-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="consultation.html">Contact</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
