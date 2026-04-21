@@ -794,6 +794,17 @@
             .nav-links { display: none; }
             .hero { grid-template-columns: 1fr; min-height: auto; }
             .hero-text { padding: 7rem 2rem 3rem; }
+            .hero-text .btn-primary,
+            .hero-text .btn-secondary {
+                display: block;
+                width: 100%;
+                max-width: 320px;
+                text-align: center;
+            }
+            .hero-text .btn-secondary {
+                margin-left: 0;
+                margin-top: 0.9rem;
+            }
             .hero-image { height: 50vh; }
             section { padding: 4rem 1.5rem; }
             .services-grid,
@@ -805,7 +816,23 @@
             .philosophy-section { flex-direction: column; gap: 0; padding: 0; }
             .philosophy-image { min-height: 300px; }
             .philosophy-text { padding: 3rem 2rem; }
-            .trust-bar { gap: 1.5rem; padding: 1.25rem 1.5rem; }
+            .trust-bar {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.9rem;
+                padding: 1.5rem 2rem;
+            }
+            .trust-item {
+                width: 100%;
+                align-items: flex-start;
+                gap: 0.75rem;
+                line-height: 1.5;
+                text-align: left;
+            }
+            .trust-item::before {
+                flex: 0 0 auto;
+                line-height: 1.5;
+            }
             .request-card,
             .request-side { padding: 2rem; }
             .service-areas { grid-template-columns: 1fr; }
