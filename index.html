@@ -637,6 +637,30 @@
             line-height: 1.6;
             color: var(--warm-gray);
         }
+        .calendly-booking {
+            margin-top: 1.5rem;
+            display: none;
+            border: 1px solid rgba(184,150,90,0.25);
+            background: #fff;
+            padding: 1.25rem;
+        }
+        .calendly-booking-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.7rem;
+            font-weight: 400;
+            color: var(--charcoal);
+            margin-bottom: 0.45rem;
+        }
+        .calendly-booking-copy {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+        .calendly-inline-host {
+            min-width: 320px;
+            height: 760px;
+        }
 
         .request-side {
             padding: 2.5rem;
@@ -1217,6 +1241,11 @@
                     <button type="submit" class="btn-primary">Send Request</button>
                 </div>
             </form>
+            <div id="calendly-booking" class="calendly-booking">
+                <h3 class="calendly-booking-title">Pick a time to talk</h3>
+                <p class="calendly-booking-copy">Choose a time below for your consultation.</p>
+                <div id="calendly-inline-host" class="calendly-inline-host"></div>
+            </div>
         </div>
         <aside class="request-side">
             <div class="section-label">Service Areas</div>
@@ -1271,9 +1300,32 @@
     </ul>
 </footer>
 
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
     const requestForm = document.getElementById('brentwood-contact-form');
     const formStatus = document.getElementById('brentwood-form-status');
+    const calendlyBooking = document.getElementById('calendly-booking');
+    const calendlyHost = document.getElementById('calendly-inline-host');
+    const calendlyUrl = 'https://calendly.com/rhode-brentwoodorganizers/let-s-talk-home-organization-support-clone';
+
+    function showCalendly(formData) {
+        if (!calendlyBooking || !calendlyHost) return;
+        calendlyBooking.style.display = 'block';
+
+        if (window.Calendly && calendlyHost.dataset.initialized !== 'true') {
+            window.Calendly.initInlineWidget({
+                url: calendlyUrl,
+                parentElement: calendlyHost,
+                prefill: {
+                    name: formData['Full Name'] || '',
+                    email: formData.Email || ''
+                }
+            });
+            calendlyHost.dataset.initialized = 'true';
+        }
+
+        calendlyBooking.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 
     if (requestForm) {
         requestForm.addEventListener('submit', function (event) {
@@ -1312,6 +1364,7 @@
                         formStatus.style.color = '#198754';
                         formStatus.textContent = 'Thank you! Your request has been received. We will be in touch shortly.';
                     }
+                    showCalendly(formData);
                     requestForm.reset();
                 })
                 .catch(function (error) {
