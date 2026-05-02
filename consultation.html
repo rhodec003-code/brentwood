@@ -207,6 +207,16 @@
             color: var(--text-soft);
             line-height: 1.8;
         }
+        .form-status {
+            grid-column: 1 / -1;
+            display: none;
+            padding: 0.85rem 1rem;
+            border: 1px solid var(--sand);
+            background: #fff;
+            font-size: 0.86rem;
+            line-height: 1.6;
+            color: var(--warm-gray);
+        }
         .btn-primary, .btn-gold {
             display: inline-block;
             padding: 1rem 2.4rem;
@@ -401,6 +411,15 @@
         }
 
     </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FJNFKPTB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+
+      gtag("config", "G-22FJNFKPTB");
+    </script>
 </head>
 <body>
     <nav>
@@ -445,7 +464,7 @@
                 <div class="section-label">Service Request Form</div>
                 <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3rem);">We'll help you find the right starting point.</h2>
                 <p class="section-intro">Use the form below to request support for a move-in, home organization project, estate transition, or a combination of services.</p>
-                <form class="request-form" id="requestForm">
+                <form class="request-form" id="brentwood-contact-form">
                     <div class="request-field">
                         <label for="full-name">Full Name</label>
                         <input id="full-name" name="Full Name" type="text" required>
@@ -480,7 +499,8 @@
                         <label for="details">Project Details</label>
                         <textarea id="details" name="Project Details" placeholder="Share a few details about the home, rooms involved, and the kind of support you need." required></textarea>
                     </div>
-                    <p class="request-note">Submitting opens your email app with the inquiry prefilled so Brentwood Organizers can respond directly.</p>
+                    <p class="request-note">Submit your request and our team will follow up shortly.</p>
+                    <div id="brentwood-form-status" class="form-status"></div>
                     <div class="request-field full-width">
                         <button type="submit" class="btn-primary">Send Request</button>
                     </div>
@@ -524,8 +544,9 @@
         </ul>
     </footer>
     <script>
-        const requestForm = document.getElementById('requestForm');
+        const requestForm = document.getElementById('brentwood-contact-form');
         const serviceSelect = document.getElementById('service');
+        const formStatus = document.getElementById('brentwood-form-status');
         const params = new URLSearchParams(window.location.search);
         const requestedService = params.get('service');
 
@@ -543,21 +564,62 @@
             requestForm.addEventListener('submit', function (event) {
                 event.preventDefault();
 
-                const formData = new FormData(requestForm);
-                const subject = 'Request a Consultation';
-                const body = [
-                    'Full Name: ' + (formData.get('Full Name') || ''),
-                    'Email: ' + (formData.get('Email') || ''),
-                    'Phone: ' + (formData.get('Phone') || ''),
-                    'Service Needed: ' + (formData.get('Service Needed') || ''),
-                    'Project Location: ' + (formData.get('Project Location') || ''),
-                    'Ideal Timeline: ' + (formData.get('Ideal Timeline') || ''),
-                    '',
-                    'Project Details:',
-                    formData.get('Project Details') || ''
-                ].join('\n');
+                const formData = {};
+                requestForm.querySelectorAll('input, select, textarea').forEach(function (input) {
+                    if (!input.name) return;
+                    formData[input.name] = input.value.trim();
+                });
 
-                window.location.href = 'mailto:info@brentwoodorganizers.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+                const submitButton = requestForm.querySelector('button[type="submit"]');
+                if (submitButton) {
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+                }
+
+                if (formStatus) {
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = '#6b6259';
+                    formStatus.textContent = 'Submitting...';
+                }
+
+                fetch('https://thinksmart.life/forms/brentwood/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                })
+                    .then(function (response) { return response.json(); })
+                    .then(function (result) {
+                        if (!result.success) {
+                            throw new Error(result.message || 'Submission failed');
+                        }
+
+                        if (formStatus) {
+                            formStatus.style.color = '#198754';
+                            formStatus.textContent = 'Thank you! Your request has been received. We will be in touch shortly.';
+                        }
+                        requestForm.reset();
+                        if (requestedService && serviceSelect) {
+                            const matchingOption = Array.from(serviceSelect.options).find(function (option) {
+                                return option.value === requestedService || option.text === requestedService;
+                            });
+                            if (matchingOption) {
+                                serviceSelect.value = matchingOption.value || matchingOption.text;
+                            }
+                        }
+                    })
+                    .catch(function (error) {
+                        if (formStatus) {
+                            formStatus.style.color = '#dc3545';
+                            formStatus.textContent = 'Sorry, there was a problem submitting your request. Please email us directly at info@brentwoodorganizers.com or try again.';
+                        }
+                        console.error('Form submission error:', error);
+                    })
+                    .finally(function () {
+                        if (submitButton) {
+                            submitButton.disabled = false;
+                            submitButton.textContent = 'Send Request';
+                        }
+                    });
             });
         }
     </script>
