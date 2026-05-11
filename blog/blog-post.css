@@ -41,7 +41,7 @@ nav {
 }
 .nav-links, .footer-links {
     display: flex;
-    gap: 2rem;
+    gap: 1.4rem;
     list-style: none;
 }
 .nav-links a, .footer-links a, .nav-cta, .article-link, .btn-primary {
