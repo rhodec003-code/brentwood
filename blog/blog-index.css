@@ -208,6 +208,14 @@ h1 {
     font-weight: 400;
     margin-bottom: 0.8rem;
 }
+.card-date {
+    color: var(--gold);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.65rem;
+}
 .card-link {
     margin-top: auto;
     padding-top: 1.2rem;
