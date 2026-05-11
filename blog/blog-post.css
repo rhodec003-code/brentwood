@@ -183,6 +183,19 @@ footer {
     font-size: 0.72rem;
     letter-spacing: 0.06em;
 }
+.footer-social {
+    display: flex;
+    align-items: center;
+}
+.footer-social a {
+    color: var(--warm-gray);
+    transition: color 0.2s ease;
+}
+.footer-social a:hover { color: var(--gold); }
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+}
 @media (max-width: 900px) {
     nav { align-items: flex-start; flex-direction: column; padding: 1rem 1.25rem; }
     .nav-links { flex-wrap: wrap; gap: 0.8rem 1.2rem; }

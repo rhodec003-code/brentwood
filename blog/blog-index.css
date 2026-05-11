@@ -265,6 +265,19 @@ footer {
     font-size: 0.72rem;
     letter-spacing: 0.06em;
 }
+.footer-social {
+    display: flex;
+    align-items: center;
+}
+.footer-social a {
+    color: var(--warm-gray);
+    transition: color 0.2s ease;
+}
+.footer-social a:hover { color: var(--gold); }
+.footer-social svg {
+    width: 20px;
+    height: 20px;
+}
 @media (max-width: 1024px) {
     .blog-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .intro-layout { grid-template-columns: 1fr; }
