@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="alternate" hreflang="en" href="https://brentwoodorganizers.com/home-organization.html">
+    <link rel="alternate" hreflang="es" href="https://brentwoodorganizers.com/es/home-organization.html">
+    <link rel="alternate" hreflang="x-default" href="https://brentwoodorganizers.com/home-organization.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organización del Hogar | Brentwood Organizers</title>
+    <meta name="description" content="Servicios de organización del hogar para closets, cocinas, despensas, oficinas y espacios de almacenamiento por Brentwood Organizers en Miami.">
+    <link rel="icon" href="../favicon.ico" sizes="any">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cream: #faf8f4;
+            --warm-white: #f5f2ed;
+            --sand: #e8e0d4;
+            --stone: #c9bfb0;
+            --charcoal: #2a2520;
+            --warm-gray: #6b6259;
+            --gold: #b8965a;
+            --gold-light: #d4ad73;
+            --text: #2a2520;
+            --text-soft: #5a5149;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3.5rem;
+            background: rgba(250,248,244,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,150,90,0.15);
+        }
+        .nav-logo, .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+        .nav-links, .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links li { position: relative; }
+        .nav-links a, .footer-links a {
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+        }
+        .nav-links a:hover, .footer-links a:hover { color: var(--gold); }
+        .footer-social {
+            display: flex;
+            align-items: center;
+        }
+        .footer-social a {
+            color: var(--warm-gray);
+            transition: color 0.2s ease;
+        }
+        .footer-social a:hover { color: var(--gold); }
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 0.9rem);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            background: rgba(250,248,244,0.98);
+            border: 1px solid rgba(184,150,90,0.18);
+            box-shadow: 0 22px 45px rgba(42,37,32,0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+        .nav-dropdown a {
+            display: block;
+            padding: 0.8rem 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+        }
+        .nav-item-services:hover .nav-dropdown,
+        .nav-item-services:focus-within .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+        .nav-cta, .btn-primary, .btn-secondary, .btn-gold {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.25s;
+        }
+        .nav-cta {
+            color: var(--charcoal) !important;
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.4rem;
+        }
+        .nav-cta:hover { background: var(--gold); color: white !important; }
+        section { padding: 6rem 3.5rem; }
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--charcoal);
+            margin-bottom: 1.25rem;
+        }
+        .section-intro {
+            font-size: 0.98rem;
+            color: var(--text-soft);
+            max-width: 620px;
+            line-height: 1.85;
+        }
+        .page-hero {
+            background:
+                linear-gradient(120deg, rgba(42,37,32,0.76), rgba(42,37,32,0.32)),
+                url('../Glasses.jpeg') center/cover;
+            min-height: 74vh;
+            display: flex;
+            align-items: end;
+            padding: 8rem 3.5rem 4rem;
+        }
+        .hero-card {
+            max-width: 760px;
+            background: rgba(250,248,244,0.9);
+            padding: 2.5rem;
+            border: 1px solid rgba(184,150,90,0.22);
+            backdrop-filter: blur(8px);
+        }
+        .hero-actions {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn-primary, .btn-gold {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--charcoal);
+            background: var(--charcoal);
+            color: var(--cream);
+        }
+        .btn-primary:hover, .btn-gold:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+        .btn-secondary {
+            display: inline-block;
+            padding: 1rem 2.4rem;
+            border: 1px solid var(--stone);
+            color: var(--charcoal);
+        }
+        .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+        .detail-section { background: var(--warm-white); }
+        .detail-layout {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 2rem;
+        }
+        .detail-copy, .detail-side, .process-card, .related-card {
+            background: var(--cream);
+            border: 1px solid rgba(201,191,176,0.7);
+        }
+        .detail-copy, .detail-side { padding: 3rem; }
+        .detail-copy p, .detail-side p, .detail-copy li, .process-card p, .related-card p {
+            font-size: 0.92rem;
+            color: var(--text-soft);
+            line-height: 1.85;
+        }
+        .service-list, .detail-side ul {
+            list-style: none;
+            display: grid;
+            gap: 0.85rem;
+            margin-top: 1.5rem;
+        }
+        .service-list li, .detail-side li {
+            position: relative;
+            padding-left: 1.3rem;
+        }
+        .service-list li::before, .detail-side li::before {
+            content: '';
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--gold);
+            position: absolute;
+            left: 0;
+            top: 0.7rem;
+        }
+        .process-section {
+            background: linear-gradient(180deg, #4a433c 0%, #38322d 100%);
+            border-top: 1px solid rgba(184,150,90,0.16);
+            border-bottom: 1px solid rgba(184,150,90,0.16);
+        }
+        .process-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .process-wrap .section-title, .process-wrap .section-intro { color: var(--cream); }
+        .process-wrap .section-intro { color: var(--stone); }
+        .process-grid, .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+        .process-grid { margin-top: 3rem; }
+        .process-card {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(212,173,115,0.28);
+            padding: 2rem;
+        }
+        .process-card h3, .related-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            font-weight: 400;
+            color: var(--cream);
+            margin-bottom: 0.75rem;
+        }
+        .process-card p {
+            color: #f8f4ee;
+        }
+        .process-step {
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: #f0c98e;
+        }
+        .related-section { background: var(--warm-white); }
+        .related-wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .related-grid { margin-top: 2rem; }
+        .related-card {
+            padding: 2rem;
+        }
+        .related-card h3 { color: var(--charcoal); }
+        .related-link {
+            display: inline-block;
+            margin-top: 1rem;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            text-decoration: none;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 6rem 3.5rem 7rem;
+        }
+        .cta-box {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--warm-white);
+            border: 1px solid rgba(184,150,90,0.18);
+            padding: 3rem;
+        }
+        footer {
+            background: #1a1612;
+            padding: 3rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(184,150,90,0.15);
+        }
+        .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--cream);
+        }
+        .footer-copy {
+            font-size: 0.72rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.06em;
+        }
+        @media (max-width: 900px) {
+            nav { padding: 1.25rem 1.5rem; }
+            .nav-links { display: none; }
+            section { padding: 4rem 1.5rem; }
+            .page-hero { min-height: auto; padding: 6.5rem 1.5rem 2rem; }
+            .hero-card, .detail-copy, .detail-side, .cta-box { padding: 2rem; }
+            .detail-layout, .process-grid, .related-grid { grid-template-columns: 1fr; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    
+
+        /* Mobile and tablet navigation */
+        .mobile-menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(184,150,90,0.35);
+            background: rgba(250,248,244,0.72);
+            color: var(--charcoal);
+            cursor: pointer;
+        }
+        .mobile-menu-toggle span {
+            position: relative;
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: currentColor;
+        }
+        .mobile-menu-toggle span::before,
+        .mobile-menu-toggle span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background: currentColor;
+            transition: transform 0.2s ease, top 0.2s ease;
+        }
+        .mobile-menu-toggle span::before { top: -6px; }
+        .mobile-menu-toggle span::after { top: 6px; }
+        nav.nav-open .mobile-menu-toggle span { background: transparent; }
+        nav.nav-open .mobile-menu-toggle span::before { top: 0; transform: rotate(45deg); }
+        nav.nav-open .mobile-menu-toggle span::after { top: 0; transform: rotate(-45deg); }
+        @media (max-width: 1024px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 0.85rem;
+                padding: 1rem 1.25rem;
+            }
+            .nav-logo {
+                font-size: clamp(1rem, 4vw, 1.25rem);
+                max-width: calc(100% - 60px);
+            }
+            .mobile-menu-toggle { display: inline-flex; }
+            .nav-links {
+                display: none !important;
+                flex: 0 0 100%;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 0.75rem 0 0;
+                margin-top: 0.25rem;
+                border-top: 1px solid rgba(184,150,90,0.18);
+            }
+            nav.nav-open .nav-links { display: flex !important; }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                display: block;
+                padding: 0.85rem 0;
+                line-height: 1.35;
+            }
+            .nav-item-services > a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+            }
+            .nav-item-services > a::after {
+                content: '+';
+                color: var(--gold);
+                font-size: 1rem;
+                letter-spacing: 0;
+            }
+            .nav-item-services.dropdown-open > a::after { content: '-'; }
+            .nav-dropdown {
+                position: static !important;
+                display: none;
+                min-width: 0;
+                padding: 0.25rem 0 0.7rem 0.9rem;
+                margin: 0 0 0.45rem 0.2rem;
+                border: 0;
+                border-left: 1px solid rgba(184,150,90,0.28);
+                box-shadow: none;
+                background: transparent;
+                opacity: 1;
+                visibility: visible;
+                transform: none !important;
+            }
+            .nav-item-services.dropdown-open .nav-dropdown { display: block; }
+            .nav-dropdown a {
+                padding: 0.55rem 0 0.55rem 0.85rem;
+                white-space: normal;
+            }
+            .nav-cta {
+                display: inline-block;
+                width: 100%;
+                margin-top: 0.4rem;
+                text-align: center;
+            }
+        }
+
+    
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        .lang-switch a {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+            padding: 0.25rem 0.5rem;
+        }
+        .lang-switch a:hover {
+            color: var(--gold);
+        }
+        .lang-switch a.active {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+        .lang-switch .lang-sep {
+            color: var(--stone);
+            font-size: 0.7rem;
+            user-select: none;
+        }
+
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FJNFKPTB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+
+      gtag("config", "G-22FJNFKPTB");
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">Brentwood Organizers</a><button class="mobile-menu-toggle" type="button" aria-label="Abrir menú de navegación" aria-expanded="false"><span></span></button>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li class="nav-item-services">
+                <a href="services.html">Servicios</a>
+                <div class="nav-dropdown">
+                    <a href="luxury-move-in.html">Mudanza de Lujo</a>
+                    <a href="home-organization.html">Organización del Hogar</a>
+                    <a href="estate-transitions.html">Transiciones Patrimoniales</a>
+                </div>
+            </li>
+            <li class="nav-item-services">
+                <a href="locations.html">Ubicaciones</a>
+                <div class="nav-dropdown">
+                    <a href="bal-harbour.html">Bal Harbour</a>
+                    <a href="boca-raton.html">Boca Raton</a>
+                    <a href="brickell.html">Brickell</a>
+                    <a href="coral-gables.html">Coral Gables</a>
+                    <a href="fort-lauderdale.html">Fort Lauderdale</a>
+                    <a href="miami-springs.html">Miami Springs</a>
+                    <a href="pembroke-pines.html">Pembroke Pines</a>
+                    <a href="west-palm-beach.html">West Palm Beach</a>
+                </div>
+            </li>
+            <li class="nav-item-services"><a href="index.html#about">Nosotros</a><div class="nav-dropdown"><a href="index.html#about">Nosotros</a><a href="faqs">Preguntas Frecuentes</a></div></li>
+            <li><a href="blog/">Blog</a></li>
+<li class="lang-switch"><a href="../">EN</a></li>
+<li><a href="consultation.html" class="nav-cta">Solicitar una Consulta</a></li>
+        </ul>
+    </nav>
+    <section class="page-hero">
+        <div class="hero-card">
+            <div class="section-label">02 · Servicio Estrella</div>
+            <h1 class="section-title">Organización del Hogar diseñada para mantenerse hermosa en la vida real.</h1>
+            <p class="section-intro">Brentwood Organizers crea sistemas intuitivos para closets, cocinas, despensas, oficinas y espacios de almacenamiento para que tu hogar se sienta más ligero, tranquilo y fácil de mantener cada día.</p>
+            <div class="hero-actions">
+                <a href="consultation.html?service=Home%20Organization" class="btn-primary">Reservar este Servicio</a>
+                <a href="services.html" class="btn-secondary">Ver Todos los Servicios</a>
+            </div>
+        </div>
+    </section>
+    <section class="detail-section">
+        <div class="detail-layout">
+            <div class="detail-copy">
+                <div class="section-label">Qué Está Incluido</div>
+                <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3rem);">Sistemas prácticos con un acabado pulido.</h2>
+                <p>Organizamos según la forma en que tu hogar realmente funciona. Eso significa conocer tus rutinas, eliminar lo que ya no te sirve, agrupar por propósito y crear sistemas que tengan sentido de un vistazo.</p>
+                <p>El resultado es un hogar que se ve compuesto pero que también funciona sin esfuerzo día tras día, ya sea que estemos refinando una despensa, reorganizando un closet principal o replanteando el flujo de varias habitaciones.</p>
+                <ul class="service-list">
+                    <li>Sistemas de closet y vestidor construidos en torno a rutinas diarias y acceso al guardarropa</li>
+                    <li>Organización de cocina y despensa para cocinar, recibir invitados y reponer productos de forma más fácil</li>
+                    <li>Configuración de oficina, archivos, biblioteca y centro de comando del hogar para operaciones diarias más claras</li>
+                    <li>Soluciones de almacenamiento, etiquetas y sistemas por categorías diseñados para el mantenimiento a largo plazo</li>
+                    <li>Recomendaciones de productos, compras personales y coordinación de donaciones cuando sea necesario</li>
+                </ul>
+            </div>
+            <aside class="detail-side">
+                <div class="section-label">Ideal Para</div>
+                <h2 class="section-title" style="font-size:clamp(1.7rem, 2.5vw, 2.3rem);">Dónde brilla este servicio.</h2>
+                <p>La Organización del Hogar es ideal para clientes que quieren que sus espacios cotidianos se sientan más ligeros, más hermosos y más fáciles de mantener sin sacrificar la funcionalidad. Funciona igual de bien para una renovación enfocada de un solo espacio o para una reorganización completa del hogar.</p>
+                <ul>
+                    <li>Closets que ya no apoyan la forma en que te vistes o almacenas</li>
+                    <li>Despensas y cocinas que necesitan estructura y calma visual</li>
+                    <li>Hogares ocupados que necesitan sistemas confiables para espacios compartidos</li>
+                    <li>Oficinas, áreas para invitados y zonas de almacenamiento que necesitan un flujo más claro</li>
+                    <li>Clientes que quieren sistemas fáciles de mantener en lugar de soluciones basadas en tendencias</li>
+                </ul>
+                <p style="margin-top:1.25rem;"><strong>¿A quién beneficia?:</strong> Propietarios que quieren menos fricción diaria, mejores rutinas y espacios que se sientan tanto pulidos como prácticos.</p>
+            </aside>
+        </div>
+    </section>
+    <section class="process-section">
+        <div class="process-wrap">
+            <div class="section-label">El Proceso</div>
+            <h2 class="section-title">Editamos, organizamos y refinamos hasta que el sistema se sienta natural.</h2>
+            <p class="section-intro">Esta estructura se basa en el método consultar-editar-organizar-mantener de Brentwood y mantiene la página enfocada en lo que más importa a los clientes: cómo funcionará el espacio después de que termine el proyecto.</p>
+            <div class="process-grid">
+                <div class="process-card">
+                    <span class="process-step">Paso 01</span>
+                    <h3>Evaluar</h3>
+                    <p>Revisamos la habitación, identificamos puntos de fricción y entendemos cómo el espacio necesita servirte a ti y a tus rutinas.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">Paso 02</span>
+                    <h3>Organizar</h3>
+                    <p>Editamos, categorizamos y establecemos zonas que reducen el desorden, mejoran el flujo y le dan un lugar claro a cada artículo.</p>
+                </div>
+                <div class="process-card">
+                    <span class="process-step">Paso 03</span>
+                    <h3>Refinar</h3>
+                    <p>Terminamos con etiquetas, lógica de colocación y toques fáciles de mantener que mantienen el espacio funcionando hermosamente con el tiempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="related-section">
+        <div class="related-wrap">
+            <div class="section-label">Otros Servicios</div>
+            <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3rem);">Explora servicios relacionados.</h2>
+            <div class="related-grid">
+                <div class="related-card">
+                    <h3>Mudanza de Lujo</h3>
+                    <p>Prepara un nuevo hogar para que se sienta completo, intencional y listo desde el primer día.</p>
+                    <a href="luxury-move-in.html" class="related-link">Ver Servicio</a>
+                </div>
+                <div class="related-card">
+                    <h3>Transiciones Patrimoniales</h3>
+                    <p>Supera la reducción de espacio y los grandes cambios de vida con apoyo respetuoso y estructura.</p>
+                    <a href="estate-transitions.html" class="related-link">Ver Servicio</a>
+                </div>
+                <div class="related-card">
+                    <h3>Todos los Servicios</h3>
+                    <p>Regresa al resumen de servicios para comparar cada oferta de Brentwood.</p>
+                    <a href="services.html" class="related-link">Abrir Centro de Servicios</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cta-section" id="contact">
+        <div class="cta-box">
+            <div class="section-label">Inicia tu Proyecto</div>
+            <h2 class="section-title" style="font-size:clamp(2rem, 3vw, 3.2rem);">¿Listo para sistemas que se sientan sin esfuerzo de mantener?</h2>
+            <p class="section-intro" style="margin:0 auto 2rem;">Cuéntale a Brentwood Organizers sobre los espacios que quieres transformar y el equipo te contactará para agendar una consulta.</p>
+            <a href="consultation.html?service=Home%20Organization" class="btn-gold">Solicitar una Consulta</a>
+        </div>
+    </section>
+    <footer>
+        <a href="index.html" class="footer-logo">Brentwood Organizers</a>
+        <span class="footer-copy">© 2026 Brentwood Professional Organizers · Miami, FL</span>
+        <ul class="footer-links">
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="index.html#about">Nosotros</a></li>
+            <li><a href="consultation.html">Contacto</a></li>
+        </ul>
+        <div class="footer-social"><a href="https://www.instagram.com/brentwoodorganizers/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a></div>
+    </footer>
+
+    <script>
+        (function () {
+            var mobileQuery = window.matchMedia('(max-width: 1024px)');
+            document.querySelectorAll('nav').forEach(function (nav) {
+                var toggle = nav.querySelector('.mobile-menu-toggle');
+                var links = nav.querySelector('.nav-links');
+                if (!toggle || !links) return;
+
+                toggle.addEventListener('click', function () {
+                    var isOpen = nav.classList.toggle('nav-open');
+                    toggle.setAttribute('aria-expanded', String(isOpen));
+                });
+
+                nav.querySelectorAll('.nav-item-services > a').forEach(function (trigger) {
+                    trigger.addEventListener('click', function (event) {
+                        if (!mobileQuery.matches) return;
+                        event.preventDefault();
+                        trigger.parentElement.classList.toggle('dropdown-open');
+                    });
+                });
+
+                links.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        if (!mobileQuery.matches || link.parentElement.classList.contains('nav-item-services')) return;
+                        nav.classList.remove('nav-open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            });
+        }());
+    </script>
+
+</body>
+</html>

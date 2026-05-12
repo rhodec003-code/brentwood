@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="alternate" hreflang="es" href="https://brentwoodorganizers.com/es/index.html">
+    <link rel="alternate" hreflang="en" href="https://brentwoodorganizers.com/index.html">
+    <link rel="alternate" hreflang="x-default" href="https://brentwoodorganizers.com/index.html">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brentwood Organizers — Luxury Home Organization Miami</title>
@@ -996,6 +999,36 @@
             }
         }
 
+    
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        .lang-switch a {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+            padding: 0.25rem 0.5rem;
+        }
+        .lang-switch a:hover {
+            color: var(--gold);
+        }
+        .lang-switch a.active {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+        .lang-switch .lang-sep {
+            color: var(--stone);
+            font-size: 0.7rem;
+            user-select: none;
+        }
+
     </style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FJNFKPTB"></script>
@@ -1037,7 +1070,8 @@
 	        </li>
 		<li class="nav-item-services"><a href="#about">About</a><div class="nav-dropdown"><a href="#about">About</a><a href="faqs">FAQS</a></div></li>
  	        <li><a href="blog/">Blogs</a></li>
-	        <li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
+<li class="lang-switch"><a href="es/" class="active">ES</a></li>
+<li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
 	    </ul>
 	</nav>
 

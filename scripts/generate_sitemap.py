@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
-"""Generate sitemap.xml for brentwoodorganizers.com.
+"""Generate bilingual sitemap.xml for brentwoodorganizers.com.
 
 Usage:
     python3 scripts/generate_sitemap.py
 
-Outputs sitemap.xml to the project root.
+Outputs sitemap.xml to the project root with English and Spanish URLs,
+including hreflang alternate tags for each entry.
 """
 
 import os
-import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 
 DOMAIN = "https://brentwoodorganizers.com"
@@ -28,7 +28,7 @@ EXCLUDED = {
 
 # Paths to skip (duplicates of canonical URLs)
 EXCLUDED_PATHS = {
-    "blog/home-organization-tips/how-to-organize-before-the-holidays/index.html",  # duplicate of blog/how-to-organize-before-the-holidays/
+    "blog/home-organization-tips/how-to-organize-before-the-holidays/index.html",
 }
 
 
@@ -46,40 +46,31 @@ def get_priority(filepath: str) -> str:
     """Assign priority based on page type."""
     if filepath == "index.html":
         return PRIORITY_HOME
-    elif filepath in (
-        "services.html",
-        "consultation.html",
-        "locations.html",
-    ):
+    elif filepath in ("services.html", "consultation.html", "locations.html"):
         return PRIORITY_SERVICE
-    elif filepath in ("blog/index.html",):
+    elif filepath == "blog/index.html":
         return PRIORITY_BLOG_INDEX
     elif filepath.startswith("blog/"):
         return PRIORITY_BLOG_POST
     elif filepath.startswith("faqs/"):
         return PRIORITY_OTHER
     elif filepath.endswith(".html"):
-        # Location pages, service pages, etc.
         base = os.path.basename(filepath)
-        if base in (
-            "luxury-move-in.html",
-            "home-organization.html",
-            "estate-transitions.html",
-            "blogs.html",
-        ):
+        if base in ("luxury-move-in.html", "home-organization.html",
+                     "estate-transitions.html", "blogs.html"):
             return PRIORITY_SERVICE
         return PRIORITY_LOCATION
     return PRIORITY_OTHER
 
 
 def collect_pages() -> list[tuple[str, str, str]]:
-    """Return list of (loc, lastmod, priority) tuples."""
+    """Return list of (loc, lastmod, priority) tuples for English pages only."""
     pages = []
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     for root, dirs, files in os.walk(PROJECT_ROOT):
-        # Skip hidden dirs and node_modules etc.
-        dirs[:] = [d for d in dirs if not d.startswith(".")]
+        # Skip hidden dirs, es/ directory, and node_modules etc.
+        dirs[:] = [d for d in dirs if not d.startswith(".") and d != "es"]
 
         for fname in files:
             if not fname.endswith(".html"):
@@ -88,7 +79,6 @@ def collect_pages() -> list[tuple[str, str, str]]:
             full = os.path.join(root, fname)
             rel = os.path.relpath(full, PROJECT_ROOT)
 
-            # Check exclusion by basename or full relative path
             if fname in EXCLUDED or rel in EXCLUDED_PATHS:
                 continue
 
@@ -96,41 +86,60 @@ def collect_pages() -> list[tuple[str, str, str]]:
             priority = get_priority(rel)
             pages.append((DOMAIN + url, now, priority))
 
-    # Sort by priority (home first), then alphabetically
     priority_order = {
-        PRIORITY_HOME: 0,
-        PRIORITY_SERVICE: 1,
-        PRIORITY_LOCATION: 2,
-        PRIORITY_BLOG_INDEX: 3,
-        PRIORITY_BLOG_POST: 4,
-        PRIORITY_OTHER: 5,
+        PRIORITY_HOME: 0, PRIORITY_SERVICE: 1, PRIORITY_LOCATION: 2,
+        PRIORITY_BLOG_INDEX: 3, PRIORITY_BLOG_POST: 4, PRIORITY_OTHER: 5,
     }
     pages.sort(key=lambda p: (priority_order.get(p[2], 99), p[0]))
     return pages
 
 
 def generate_sitemap(pages: list[tuple[str, str, str]]) -> str:
-    """Generate sitemap XML string."""
-    root = ET.Element("urlset")
-    root.set("xmlns", "http://www.sitemaps.org/schemas/sitemap/0.9")
-
-    for loc, lastmod, priority in pages:
-        url_elem = ET.SubElement(root, "url")
-        ET.SubElement(url_elem, "loc").text = loc
-        ET.SubElement(url_elem, "lastmod").text = lastmod
-        ET.SubElement(url_elem, "changefreq").text = CHANGE_FREQ_DEFAULT
-        ET.SubElement(url_elem, "priority").text = priority
-
+    """Generate sitemap XML with hreflang alternates for EN/ES."""
     lines = []
     lines.append('<?xml version="1.0" encoding="UTF-8"?>')
-    lines.append('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">')
-    for loc, lastmod, priority in pages:
+    lines.append(
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
+        'xmlns:xhtml="http://www.w3.org/1999/xhtml">'
+    )
+
+    for en_loc, lastmod, priority in pages:
+        es_loc = en_loc.replace(DOMAIN, DOMAIN + "/es")
+
+        # English entry
         lines.append("  <url>")
-        lines.append(f"    <loc>{loc}</loc>")
+        lines.append(f"    <loc>{en_loc}</loc>")
         lines.append(f"    <lastmod>{lastmod}</lastmod>")
         lines.append(f"    <changefreq>{CHANGE_FREQ_DEFAULT}</changefreq>")
         lines.append(f"    <priority>{priority}</priority>")
+        lines.append(
+            f'    <xhtml:link rel="alternate" hreflang="es" href="{es_loc}"/>'
+        )
+        lines.append(
+            f'    <xhtml:link rel="alternate" hreflang="en" href="{en_loc}"/>'
+        )
+        lines.append(
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{en_loc}"/>'
+        )
         lines.append("  </url>")
+
+        # Spanish entry
+        lines.append("  <url>")
+        lines.append(f"    <loc>{es_loc}</loc>")
+        lines.append(f"    <lastmod>{lastmod}</lastmod>")
+        lines.append(f"    <changefreq>{CHANGE_FREQ_DEFAULT}</changefreq>")
+        lines.append(f"    <priority>{priority}</priority>")
+        lines.append(
+            f'    <xhtml:link rel="alternate" hreflang="en" href="{en_loc}"/>'
+        )
+        lines.append(
+            f'    <xhtml:link rel="alternate" hreflang="es" href="{es_loc}"/>'
+        )
+        lines.append(
+            f'    <xhtml:link rel="alternate" hreflang="x-default" href="{en_loc}"/>'
+        )
+        lines.append("  </url>")
+
     lines.append("</urlset>")
     return "\n".join(lines) + "\n"
 
@@ -141,7 +150,8 @@ def main():
     out = os.path.join(PROJECT_ROOT, "sitemap.xml")
     with open(out, "w", encoding="utf-8") as f:
         f.write(xml)
-    print(f"Generated sitemap.xml with {len(pages)} URLs")
+    total = len(pages) * 2
+    print(f"Generated sitemap.xml with {total} URLs ({len(pages)} EN + {len(pages)} ES)")
 
 
 if __name__ == "__main__":
