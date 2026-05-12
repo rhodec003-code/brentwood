@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link rel="alternate" hreflang="en" href="https://brentwoodorganizers.com/reviews.html">
+    <link rel="alternate" hreflang="fr" href="https://brentwoodorganizers.com/fr/reviews.html">
+    <link rel="alternate" hreflang="x-default" href="https://brentwoodorganizers.com/reviews.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avis | Brentwood Organizers</title>
+    <meta name="description" content="Lisez ce que nos clients disent des services d'organisation de maisons de luxe de Brentwood Organizers à Miami.">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #faf8f4;
+            --warm-white: #f5f2ed;
+            --sand: #e8e0d4;
+            --stone: #c9bfb0;
+            --charcoal: #2a2520;
+            --warm-gray: #6b6259;
+            --light-gray: #9c9289;
+            --gold: #b8965a;
+            --gold-light: #d4ad73;
+            --text: #2a2520;
+            --text-soft: #5a5149;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3.5rem;
+            background: rgba(250,248,244,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,150,90,0.15);
+        }
+
+        .nav-logo,
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .nav-logo {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--charcoal);
+        }
+
+        .nav-links,
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a,
+        .footer-links a {
+            font-size: 0.74rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+        }
+
+        .nav-links a:hover,
+        .footer-links a:hover { color: var(--gold); }
+
+        .footer-social {
+            display: flex;
+            align-items: center;
+        }
+        .footer-social a {
+            color: var(--warm-gray);
+            transition: color 0.2s ease;
+        }
+        .footer-social a:hover { color: var(--gold); }
+        .footer-social svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 0.9rem);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            background: rgba(250,248,244,0.98);
+            border: 1px solid rgba(184,150,90,0.18);
+            box-shadow: 0 22px 45px rgba(42,37,32,0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+
+        .nav-dropdown a {
+            display: block;
+            padding: 0.8rem 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+        }
+
+        .nav-item-services:hover .nav-dropdown,
+        .nav-item-services:focus-within .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-cta {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--charcoal) !important;
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.4rem;
+            transition: all 0.2s !important;
+        }
+
+        .nav-cta:hover { background: var(--gold) !important; color: white !important; }
+
+        .mobile-menu-toggle {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(184,150,90,0.35);
+            background: rgba(250,248,244,0.72);
+            color: var(--charcoal);
+            cursor: pointer;
+        }
+        .mobile-menu-toggle span {
+            position: relative;
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: currentColor;
+        }
+        .mobile-menu-toggle span::before,
+        .mobile-menu-toggle span::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background: currentColor;
+            transition: transform 0.2s ease, top 0.2s ease;
+        }
+        .mobile-menu-toggle span::before { top: -6px; }
+        .mobile-menu-toggle span::after { top: 6px; }
+        nav.nav-open .mobile-menu-toggle span { background: transparent; }
+        nav.nav-open .mobile-menu-toggle span::before { top: 0; transform: rotate(45deg); }
+        nav.nav-open .mobile-menu-toggle span::after { top: 0; transform: rotate(-45deg); }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            list-style: none;
+        }
+        .lang-switch a {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+            padding: 0.25rem 0.5rem;
+        }
+        .lang-switch a:hover { color: var(--gold); }
+        .lang-switch a.active {
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+        .lang-switch .lang-sep {
+            color: var(--stone);
+            font-size: 0.7rem;
+            user-select: none;
+        }
+
+        /* Page Hero */
+        .page-hero {
+            background:
+                linear-gradient(120deg, rgba(42,37,32,0.78), rgba(42,37,32,0.38)),
+                url('https://images.unsplash.com/photo-1600210492493-0946911123ea?w=1400&q=80&fit=crop') center/cover;
+            min-height: 55vh;
+            display: flex;
+            align-items: end;
+            padding: 8rem 3.5rem 4rem;
+        }
+
+        .hero-card {
+            max-width: 760px;
+            background: rgba(250,248,244,0.92);
+            padding: 2.5rem;
+            border: 1px solid rgba(184,150,90,0.22);
+            backdrop-filter: blur(8px);
+        }
+
+        .section-label {
+            font-size: 0.68rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2rem, 3.5vw, 3.2rem);
+            font-weight: 300;
+            line-height: 1.15;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+        }
+
+        .section-intro {
+            font-size: 0.95rem;
+            color: var(--text-soft);
+            max-width: 600px;
+            line-height: 1.85;
+        }
+
+        /* Reviews */
+        .reviews-section {
+            padding: 5rem 3.5rem;
+            background: var(--warm-white);
+        }
+
+        .reviews-container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .reviews-header .section-label { text-align: center; }
+        .reviews-header .section-title { text-align: center; }
+        .reviews-header .section-intro {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .google-rating {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .google-stars {
+            display: flex;
+            gap: 0.15rem;
+        }
+
+        .google-stars svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--gold);
+        }
+
+        .google-rating-text,
+        .google-rating-text a {
+            font-size: 0.85rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .google-rating-text a:hover {
+            color: var(--gold);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .review-card {
+            background: var(--cream);
+            padding: 1.5rem;
+            border: 1px solid rgba(201,191,176,0.5);
+            border-left: 3px solid var(--gold);
+            transition: border-color 0.2s;
+        }
+
+        .review-card:hover {
+            border-left-color: var(--gold-light);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 0.08rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .review-stars svg {
+            width: 13px;
+            height: 13px;
+            fill: var(--gold);
+        }
+
+        .review-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            font-weight: 400;
+            font-style: italic;
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .review-author {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+        }
+
+        .review-source {
+            font-size: 0.7rem;
+            color: var(--light-gray);
+            margin-top: 0.25rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--charcoal);
+            text-align: center;
+            padding: 6rem 3.5rem;
+        }
+
+        .cta-section .section-label {
+            color: var(--gold-light);
+            text-align: center;
+        }
+
+        .cta-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 300;
+            color: var(--cream);
+            max-width: 600px;
+            margin: 0 auto 1.25rem;
+            line-height: 1.2;
+        }
+
+        .cta-desc {
+            font-size: 0.92rem;
+            color: var(--stone);
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.8;
+        }
+
+        .btn-gold {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            transition: all 0.25s;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1612;
+            padding: 3rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            border-top: 1px solid rgba(184,150,90,0.15);
+        }
+
+        .footer-logo {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--cream);
+        }
+
+        .footer-copy {
+            font-size: 0.72rem;
+            color: var(--warm-gray);
+            letter-spacing: 0.06em;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                flex-wrap: wrap;
+                gap: 0.85rem;
+                padding: 1rem 1.25rem;
+            }
+            .nav-logo {
+                font-size: clamp(1rem, 4vw, 1.25rem);
+                max-width: calc(100% - 60px);
+            }
+            .mobile-menu-toggle { display: inline-flex; }
+            .nav-links {
+                display: none !important;
+                flex: 0 0 100%;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 0.75rem 0 0;
+                margin-top: 0.25rem;
+                border-top: 1px solid rgba(184,150,90,0.18);
+            }
+            nav.nav-open .nav-links { display: flex !important; }
+            .nav-links li { width: 100%; }
+            .nav-links a {
+                display: block;
+                padding: 0.85rem 0;
+                line-height: 1.35;
+            }
+            .nav-item-services > a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 1rem;
+            }
+            .nav-item-services > a::after {
+                content: '+';
+                color: var(--gold);
+                font-size: 1rem;
+                letter-spacing: 0;
+            }
+            .nav-item-services.dropdown-open > a::after { content: '-'; }
+            .nav-dropdown {
+                position: static !important;
+                display: none;
+                min-width: 0;
+                padding: 0.25rem 0 0.7rem 0.9rem;
+                margin: 0 0 0.45rem 0.2rem;
+                border: 0;
+                border-left: 1px solid rgba(184,150,90,0.28);
+                box-shadow: none;
+                background: transparent;
+                opacity: 1;
+                visibility: visible;
+                transform: none !important;
+            }
+            .nav-item-services.dropdown-open .nav-dropdown { display: block; }
+            .nav-dropdown a {
+                padding: 0.55rem 0 0.55rem 0.85rem;
+                white-space: normal;
+            }
+            .nav-cta {
+                display: inline-block;
+                width: 100%;
+                margin-top: 0.4rem;
+                text-align: center;
+            }
+            .page-hero {
+                padding: 6rem 1.5rem 3rem;
+                min-height: 45vh;
+            }
+            .hero-card { padding: 2rem; }
+            .reviews-section { padding: 3rem 1.5rem; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .review-card { padding: 1.25rem; }
+            .cta-section { padding: 4rem 1.5rem; }
+            footer { flex-direction: column; text-align: center; }
+        }
+    </style>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-22FJNFKPTB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+
+      gtag("config", "G-22FJNFKPTB");
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="index.html" class="nav-logo">Brentwood Organizers</a><button class="mobile-menu-toggle" type="button" aria-label="Ouvrir le menu de navigation" aria-expanded="false"><span></span></button>
+        <ul class="nav-links">
+            <li><a href="index.html">Accueil</a></li>
+            <li class="nav-item-services">
+                <a href="services.html">Services</a>
+                <div class="nav-dropdown">
+                    <a href="luxury-move-in.html">Ménagement de Luxe</a>
+                    <a href="home-organization.html">Organisation Domiciliaire</a>
+                    <a href="estate-transitions.html">Transitions Patrimoniales</a>
+                </div>
+            </li>
+            <li class="nav-item-services">
+                <a href="locations.html">Emplacements</a>
+                <div class="nav-dropdown">
+                    <a href="bal-harbour.html">Bal Harbour</a>
+                    <a href="boca-raton.html">Boca Raton</a>
+                    <a href="brickell.html">Brickell</a>
+                    <a href="coral-gables.html">Coral Gables</a>
+                    <a href="fort-lauderdale.html">Fort Lauderdale</a>
+                    <a href="miami-springs.html">Miami Springs</a>
+                    <a href="pembroke-pines.html">Pembroke Pines</a>
+                    <a href="west-palm-beach.html">West Palm Beach</a>
+                </div>
+            </li>
+            <li class="nav-item-services"><a href="index.html#about">À propos</a><div class="nav-dropdown"><a href="index.html#about">À propos</a><a href="reviews.html">Avis</a><a href="../faqs">FAQ</a></div></li>
+            <li><a href="blog/">Blog</a></li>
+            <li class="lang-switch"><a href="../">EN</a> <span class="lang-sep">|</span> <a href="../es/">ES</a></li>
+            <li><a href="consultation.html" class="nav-cta">Demander une Consultation</a></li>
+        </ul>
+    </nav>
+
+    <section class="page-hero">
+        <div class="hero-card">
+            <div class="section-label">Avis des Clients</div>
+            <h1 class="section-title">Ce que disent nos clients.</h1>
+            <p class="section-intro">
+                Chaque projet est un privilège. Voici à quoi ressemble le travail avec Brentwood Organizers —
+                dans les mots de ceux qui nous ont confié leurs foyers.
+            </p>
+        </div>
+    </section>
+
+    <section class="reviews-section">
+        <div class="reviews-container">
+            <div class="reviews-header">
+                <div class="google-rating">
+                    <div class="google-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <a href="https://share.google/NpNWAsffS2zRPxlmp" target="_blank" rel="noopener noreferrer" class="google-rating-text">5.0 sur Google</a>
+                </div>
+            </div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"She really transformed my apartment. From the nearly 60-70 boxes I had, she tirelessly worked responsibly to get me moved in as if it was all new within a week. Trusted leaving her alone in apartment to finish work while I was away at work myself. Trustworthy, helpful, hardworking."</p>
+                    <div class="review-author">Ravi G.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"I recently had the pleasure of working with Rhode, a professional organizer who tackled the chaos in my closet and kitchen with incredible skill and precision. From start to finish, her expertise and attention to detail exceeded my expectations. My home finally feels inviting, a feeling I haven't felt in a while. Thank you for giving me that again."</p>
+                    <div class="review-author">Dinesh K.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"These people are absolute wizards at transforming spaces into something you'd see in a home decor magazine. They really understood what I wanted and brought it to life, making my place both stylish and super functional."</p>
+                    <div class="review-author">Ryan R.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"As a Realtor, I recommended Brentwood Organizers to a first time home buyer that recently bought a home. Rhode was a lifesaver to my client, assisting with unpacking, and organizing everything so efficiently that the storage spaces that seemed small were more than sufficient! We were all impressed with Rhode's level of professionalism and efficiency! I will definitely recommend her to all my buyers and sellers in the future!"</p>
+                    <div class="review-author">Courtney R.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"Rhode is an excellent resource for anyone in the process of moving. My wife passed away leaving a collection of over 1,500 dolls. Rhode and her team packaged the entire collection into boxes and prepared it for shipment to an online auction house. I highly recommend Rhode and her Brentwood team."</p>
+                    <div class="review-author">Gunther K.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"Rhode is responsive, kind and attentive to customers. I work with many home buyers and Brentwood is one of my preferred referrals when customers are moving. However, when Rhode helped my grandfather move into senior living, that's when I experienced it for myself. She has a vision and skill with clutter beyond my imagination. I think highly of her as a person all-around, because of how well she treats her clients."</p>
+                    <div class="review-author">Jonathan R.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"Rhode was a pleasure to work with. She was prompt, professional, and efficient. Everything was carefully packed. She treated my things with care and respect. Plus, she emailed me pictures of the items in each box, which made the unpacking so easy. Everything about the whole process of packing up things from Pompano Beach, Florida and getting them to Rehoboth Beach, Delaware, went so smoothly."</p>
+                    <div class="review-author">Bonnie W.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"We've hired Rhode with Brentwood Professional Organizers multiple times to handle packing services for our clients, and every single experience has been excellent. She's detail-oriented, reliable, and treats every item with care as if it were her own. Her professionalism and positive attitude make the entire moving process smoother for both our team and our customers. If you're looking for someone who truly understands what "quality packing" means, Rhode is the person you want on your side. We're always confident when she's on the job."</p>
+                    <div class="review-author">Ruben C.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"Rhode and her helpers worked diligently to declutter our Boca Raton house to prepare it for showings and our move. They were pleasant to work with; they carefully and neatly packed and labeled our boxes, which made unpacking and arranging items in our new residence much easier."</p>
+                    <div class="review-author">Lorraine L.</div>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"I booked this company last minute to organize my two closets. I was so impressed with the professionalism, the pre-scoping call and the ability to be agile for my project. Will definitely be using them again and referring this business. Rhode brought an Attention To Detail and Joy to the project that made me feel like I had a friend coming over with super power skills to help organize!!"</p>
+                    <div class="review-author">Erdina F.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="section-label">Commencer</div>
+        <h2 class="cta-title">Vivez la différence vous-même.</h2>
+        <p class="cta-desc">Chaque collaboration commence par une consultation gratuite. Partagez votre projet et nous vous recontacterons dans les 24 heures.</p>
+        <a href="consultation.html" class="btn-gold">Demander une Consultation</a>
+    </section>
+
+    <footer>
+        <a href="index.html" class="footer-logo">Brentwood Organizers</a>
+        <span class="footer-copy">&copy; 2026 Brentwood Professional Organizers &middot; Miami, FL</span>
+        <ul class="footer-links">
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#about">À propos</a></li>
+            <li><a href="blog/">Blog</a></li>
+            <li><a href="consultation.html">Contact</a></li>
+        </ul>
+        <div class="footer-social"><a href="https://www.instagram.com/brentwoodorganizers/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a></div>
+    </footer>
+
+    <script>
+        (function () {
+            var mobileQuery = window.matchMedia('(max-width: 1024px)');
+            document.querySelectorAll('nav').forEach(function (nav) {
+                var toggle = nav.querySelector('.mobile-menu-toggle');
+                var links = nav.querySelector('.nav-links');
+                if (!toggle || !links) return;
+
+                toggle.addEventListener('click', function () {
+                    var isOpen = nav.classList.toggle('nav-open');
+                    toggle.setAttribute('aria-expanded', String(isOpen));
+                });
+
+                nav.querySelectorAll('.nav-item-services > a').forEach(function (trigger) {
+                    trigger.addEventListener('click', function (event) {
+                        if (!mobileQuery.matches) return;
+                        event.preventDefault();
+                        trigger.parentElement.classList.toggle('dropdown-open');
+                    });
+                });
+
+                links.querySelectorAll('a').forEach(function (link) {
+                    link.addEventListener('click', function () {
+                        if (!mobileQuery.matches || link.parentElement.classList.contains('nav-item-services')) return;
+                        nav.classList.remove('nav-open');
+                        toggle.setAttribute('aria-expanded', 'false');
+                    });
+                });
+            });
+        }());
+    </script>
+
+</body>
+</html>
