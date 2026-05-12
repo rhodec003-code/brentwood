@@ -304,13 +304,13 @@
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
         }
 
         .review-card {
             background: var(--cream);
-            padding: 2.5rem;
+            padding: 1.5rem;
             border: 1px solid rgba(201,191,176,0.5);
             border-left: 3px solid var(--gold);
             transition: border-color 0.2s;
@@ -322,28 +322,28 @@
 
         .review-stars {
             display: flex;
-            gap: 0.1rem;
-            margin-bottom: 1rem;
+            gap: 0.08rem;
+            margin-bottom: 0.6rem;
         }
 
         .review-stars svg {
-            width: 15px;
-            height: 15px;
+            width: 13px;
+            height: 13px;
             fill: var(--gold);
         }
 
         .review-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: 400;
             font-style: italic;
             color: var(--charcoal);
-            line-height: 1.75;
-            margin-bottom: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
         }
 
         .review-author {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             font-weight: 500;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -502,8 +502,9 @@
                 min-height: 45vh;
             }
             .hero-card { padding: 2rem; }
-            .reviews-section { padding: 3.5rem 1.5rem; }
-            .review-card { padding: 2rem; }
+            .reviews-section { padding: 3rem 1.5rem; }
+            .reviews-grid { grid-template-columns: 1fr; }
+            .review-card { padding: 1.25rem; }
             .cta-section { padding: 4rem 1.5rem; }
             footer { flex-direction: column; text-align: center; }
         }
