@@ -1,0 +1,66 @@
+# Brentwood Organizers
+
+> White-glove home organization for Miami's most discerning homes. Expert move-in organizing, senior downsizing, closet organization, and estate transition services across South Florida.
+
+Brentwood Organizers is a professional home organization company based in Miami, FL. The site is a static HTML site hosted on GitHub Pages with translations in English, French, and Spanish.
+
+## Business
+
+- [Home](https://www.brentwoodorganizers.com/index.html): Overview of the company, services, and approach
+- [Services](https://www.brentwoodorganizers.com/services.html): Full list of services offered
+- [Reviews](https://www.brentwoodorganizers.com/reviews.html): Client testimonials and reviews
+- [FAQ](https://www.brentwoodorganizers.com/faqs/index.html): Frequently asked questions about services, pricing, and process
+- [Consultation](https://www.brentwoodorganizers.com/consultation.html): Request a consultation
+
+## Services
+
+- [Move-In Organization](https://www.brentwoodorganizers.com/luxury-move-in.html): White-glove move-in setup and unpacking for luxury homes and high-rises
+- [Home Organization](https://www.brentwoodorganizers.com/home-organization.html): Systems for closets, pantries, kitchens, and everyday living spaces
+- [Estate Transitions](https://www.brentwoodorganizers.com/estate-transitions.html): Compassionate downsizing and estate transition support for seniors
+
+## Locations
+
+- [Locations Overview](https://www.brentwoodorganizers.com/locations.html): All service areas listed
+- [Bal Harbour](https://www.brentwoodorganizers.com/bal-harbour.html)
+- [Boca Raton](https://www.brentwoodorganizers.com/boca-raton.html)
+- [Brickell](https://www.brentwoodorganizers.com/brickell.html)
+- [Coral Gables](https://www.brentwoodorganizers.com/coral-gables.html)
+- [Fort Lauderdale](https://www.brentwoodorganizers.com/fort-lauderdale.html)
+- [Miami Springs](https://www.brentwoodorganizers.com/miami-springs.html)
+- [Pembroke Pines](https://www.brentwoodorganizers.com/pembroke-pines.html)
+- [West Palm Beach](https://www.brentwoodorganizers.com/west-palm-beach.html)
+
+## Blog
+
+- [Blog Index](https://www.brentwoodorganizers.com/blog/index.html): All blog posts (18 articles)
+- [Condo Organizing in Boca Raton & West Palm Beach](https://www.brentwoodorganizers.com/blog/condo-organizing-solutions-in-boca-raton-and-west-palm-beach/index.html)
+- [Helping Seniors with Hoarding](https://www.brentwoodorganizers.com/blog/helping-seniors-with-hoarding/index.html)
+- [Organize Before the Holidays](https://www.brentwoodorganizers.com/blog/how-to-organize-before-the-holidays/index.html)
+- [Top Home Organizers in Miami](https://www.brentwoodorganizers.com/blog/top-home-organizers-in-miami/index.html)
+- [Senior Move Management Miami](https://www.brentwoodorganizers.com/blog/senior-move-management-miami-costs-services/index.html)
+- [Miami High-Rise Move-In Checklist](https://www.brentwoodorganizers.com/blog/miami-high-rise-move-in-checklist/index.html)
+- [Storage Solutions Miami](https://www.brentwoodorganizers.com/blog/storage-solutions-miami/index.html)
+- [Apartment Organization Tips](https://www.brentwoodorganizers.com/blog/apartment-organizer-miami/index.html)
+- [How Minimalism Reduces Stress](https://www.brentwoodorganizers.com/blog/benefits-of-minimalism/index.html)
+- [Senior Downsizing Service](https://www.brentwoodorganizers.com/blog/senior-downsizing-service-miami/index.html)
+- [Helping Seniors Get Organized](https://www.brentwoodorganizers.com/blog/helping-seniors-get-organized/index.html)
+- [Miami Home Organizer](https://www.brentwoodorganizers.com/blog/miami-home-organizer/index.html)
+- [Home Organization Tips](https://www.brentwoodorganizers.com/blog/home-organization-tips/index.html)
+- [Client Testimonial](https://www.brentwoodorganizers.com/blog/organizing-made-personal/index.html)
+- [Relocating to Miami](https://www.brentwoodorganizers.com/blog/relocating-to-miami/index.html)
+- [Start the New Year Organized](https://www.brentwoodorganizers.com/blog/start-the-new-year-organized/index.html)
+- [Benefits of Unpacking Services](https://www.brentwoodorganizers.com/blog/benefits-of-unpacking-services/index.html)
+- [Personal Organizer](https://www.brentwoodorganizers.com/blog/personal-organizer/index.html)
+
+## Translations
+
+- [French](https://www.brentwoodorganizers.com/fr/): Full French translation of all pages
+- [Spanish](https://www.brentwoodorganizers.com/es/): Full Spanish translation of all pages
+
+## Technical
+
+- Static HTML site hosted on GitHub Pages
+- Schema.org markup: LocalBusiness, Article, FAQPage, BreadcrumbList
+- robots.txt and sitemap.xml at root
+- Contact: +1 (424) 394-0619, rhode@brentwoodorganizers.com
+- Instagram: https://www.instagram.com/brentwoodorganizers/
