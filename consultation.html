@@ -691,7 +691,7 @@
                     </div>
                     <div class="request-field">
                         <label for="phone">Phone</label>
-                        <input id="phone" name="Phone" type="tel">
+                        <input id="phone" name="Phone" type="tel" required>
                     </div>
                     <div class="request-field">
                         <label for="service">Service Needed</label>
@@ -705,11 +705,11 @@
                     </div>
                     <div class="request-field">
                         <label for="location">Project Location</label>
-                        <input id="location" name="Project Location" type="text" placeholder="City or neighborhood">
+                        <input id="location" name="Project Location" type="text" placeholder="City or neighborhood" required>
                     </div>
                     <div class="request-field">
                         <label for="timeline">Ideal Timeline</label>
-                        <input id="timeline" name="Ideal Timeline" type="text" placeholder="As soon as possible, next month, etc.">
+                        <input id="timeline" name="Ideal Timeline" type="text" placeholder="As soon as possible, next month, etc." required>
                     </div>
                     <div class="request-field full-width">
                         <label for="details">Project Details</label>
@@ -811,10 +811,29 @@
                 event.preventDefault();
 
                 const formData = {};
+                let isValid = true;
+                let firstInvalidField = null;
+
                 requestForm.querySelectorAll('input, select, textarea').forEach(function (input) {
                     if (!input.name) return;
-                    formData[input.name] = input.value.trim();
+                    const trimmedValue = input.value.trim();
+                    formData[input.name] = trimmedValue;
+
+                    if (input.hasAttribute('required') && trimmedValue === '') {
+                        isValid = false;
+                        if (!firstInvalidField) firstInvalidField = input;
+                    }
                 });
+
+                if (!isValid) {
+                    if (formStatus) {
+                        formStatus.style.display = 'block';
+                        formStatus.style.color = '#dc3545';
+                        formStatus.textContent = 'Please fill in all required fields before submitting.';
+                    }
+                    if (firstInvalidField) firstInvalidField.focus();
+                    return;
+                }
 
                 const submitButton = requestForm.querySelector('button[type="submit"]');
                 if (submitButton) {
