@@ -667,6 +667,8 @@
                 calendlyHost.dataset.initialized = 'true';
             }
 
+            if (typeof gtag === 'function') gtag('event', 'schedule_consultation', {'method':'calendly_sidebar'});
+
             calendlyBooking.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
@@ -717,6 +719,7 @@
                             formStatus.style.color = '#198754';
                             formStatus.textContent = '¡Gracias! Tu solicitud ha sido recibida. Te contactaremos en breve.';
                         }
+                        if (typeof gtag === 'function') gtag('event', 'generate_lead', {'method':'contact_form'});
                         showCalendly(formData);
                         requestForm.reset();
                         if (requestedService && serviceSelect) {
