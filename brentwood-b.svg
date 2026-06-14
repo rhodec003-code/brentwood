@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="Brentwood Organizers B monogram">
+  <g fill="none" stroke="#BE9650" stroke-width="30" stroke-linecap="square" stroke-linejoin="round">
+    <!-- Double vertical stem -->
+    <line x1="250" y1="180" x2="250" y2="844"/>
+    <line x1="310" y1="180" x2="310" y2="844"/>
+
+    <!-- Horizontal B structure -->
+    <path d="M310 180 H520"/>
+    <path d="M310 512 H520"/>
+    <path d="M310 844 H520"/>
+
+    <!-- Two elegant outer curves only -->
+    <path d="M520 180 C760 180 760 512 520 512"/>
+    <path d="M520 512 C760 512 760 844 520 844"/>
+
+    <path d="M585 180 C825 180 825 512 585 512"/>
+    <path d="M585 512 C825 512 825 844 585 844"/>
+  </g>
+</svg>
