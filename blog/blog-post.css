@@ -105,6 +105,27 @@ h1 {
     font-size: 0.98rem;
 }
 .article p + p { margin-top: 1.1rem; }
+.article figure.blog-image {
+    margin: 2.5rem 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+.article figure.blog-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 2px;
+    object-fit: cover;
+}
+.article figure.blog-image figcaption {
+    font-size: 0.78rem;
+    color: var(--warm-gray);
+    text-align: center;
+    margin-top: 0.75rem;
+    font-style: italic;
+    letter-spacing: 0.02em;
+}
 .article h2 {
     font-size: clamp(1.9rem, 3vw, 2.8rem);
     margin: 2.5rem 0 0.9rem;
