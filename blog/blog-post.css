@@ -77,7 +77,6 @@ nav {
 .hero-card {
     max-width: 820px;
     background: rgba(250,248,244,0.92);
-    border: 1px solid rgba(184,150,90,0.24);
     padding: 2.75rem;
 }
 h1, h2, h3 {
