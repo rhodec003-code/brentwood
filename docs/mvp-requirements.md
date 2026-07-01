@@ -11,7 +11,6 @@
 - **Industry:** Professional home organization and lifestyle management
 - **Positioning:** Premium/luxury service provider for high-net-worth individuals in South Florida
 - **Contact:** +1 (424) 394-0619, rhode@brentwoodorganizers.com
-- **Social:** Instagram (@brentwoodorganizers)
 
 ### Target Audience
 - **Primary:** High-net-worth individuals moving into luxury homes and high-rises in Miami
@@ -121,7 +120,6 @@ brentwoodorganizers.com/
 - **Social Preview:** 1200×630 OG image for social sharing
 - **Favicons:** Multiple sizes (16×16, 32×32, ICO, apple-touch-icon)
 - **Web Manifest:** PWA-compatible site.webmanifest
-- **Icons:** SVG icons for social media links (Instagram)
 
 ## 4. Technical Requirements
 

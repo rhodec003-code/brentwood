@@ -62,9 +62,6 @@ LOCAL_BUSINESS = {
             }
         ]
     },
-    "sameAs": [
-        "https://www.instagram.com/brentwoodorganizers/"
-    ],
     "knowsAbout": [
         "Home Organization",
         "Move-In Services",
