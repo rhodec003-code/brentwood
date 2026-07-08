@@ -439,59 +439,6 @@
             backdrop-filter: blur(4px);
         }
 
-        /* ── PHILOSOPHY ── */
-        .philosophy-section {
-            background: var(--charcoal);
-            display: flex;
-            align-items: center;
-            gap: 6rem;
-            max-width: 100%;
-        }
-
-        .philosophy-image {
-            flex: 1;
-            min-height: 500px;
-            overflow: hidden;
-        }
-
-        .philosophy-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            min-height: 500px;
-        }
-
-        .philosophy-image img.about-closet-image {
-            object-position: 50% 34%;
-            transform: scale(1.18) rotate(-0.6deg);
-            transform-origin: center center;
-        }
-
-        .philosophy-text { flex: 1; padding: 2rem 0; }
-
-        .philosophy-text .section-label { color: var(--gold-light); }
-
-        .philosophy-text .section-title { color: var(--cream); }
-
-        .philosophy-quote {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
-            font-weight: 300;
-            font-style: italic;
-            color: var(--cream);
-            line-height: 1.6;
-            margin-bottom: 1.5rem;
-            border-left: 2px solid var(--gold);
-            padding-left: 1.5rem;
-        }
-
-        .philosophy-body {
-            font-size: 0.9rem;
-            color: var(--stone);
-            line-height: 1.9;
-        }
-
         /* ── TESTIMONIALS ── */
         .testimonials-section { background: var(--warm-white); }
 
@@ -893,9 +840,6 @@
             .request-form { grid-template-columns: 1fr; }
             .gallery-grid { grid-template-columns: 1fr 1fr; }
             .gallery-item:first-child { grid-column: 1 / 3; }
-            .philosophy-section { flex-direction: column; gap: 0; padding: 0; }
-            .philosophy-image { min-height: 300px; }
-            .philosophy-text { padding: 3rem 2rem; }
             .trust-bar {
                 align-items: flex-start;
                 flex-direction: column;
@@ -1323,33 +1267,6 @@
             <img src="https://images.unsplash.com/photo-1763616310557-c67d45f44c6c?w=800&q=85&fit=crop" alt="Organized living and dining room">
             <span class="gallery-label">Key Biscayne · Full Home</span>
         </div>
-    </div>
-</section>
-
-<!-- Philosophy / About -->
-<section class="philosophy-section" id="about" style="padding:0;">
-    <div class="philosophy-image">
-        <img src="Closet 3.jpeg" alt="Organized closet by Brentwood Organizers" class="about-closet-image">
-    </div>
-    <div class="philosophy-text" style="padding: 4rem 5rem;">
-        <div class="section-label">About Rhode</div>
-        <h2 class="section-title" style="color: var(--cream);">It's not about<br>getting rid of things.</h2>
-        <div class="philosophy-quote">
-            "It's about helping you find what's essential to you — and building a home that reflects the life you want to live."
-        </div>
-        <p class="philosophy-body">
-            Hello, nice to meet you! My name is Rhode, I worked in retail management for many years before transitioning to home organization. After opening retail locations for both apparel and beauty brands my entrepreneurial spirit led me to Brentwood, a project born out of a desire to blend my creative and project management skills.
-        </p>
-        <p class="philosophy-body" style="margin-top: 1rem;">
-            Starting Brentwood Professional Organizers has been an absolute dream come true, I get to free my creative mind and build lasting impressions. My goal with Brentwood is simple, to be your trusted Home Organizer.
-        </p>
-        <p class="philosophy-body" style="margin-top: 1rem;">
-            With an eye for detail and a deep respect for the people and spaces we serve, my team and I bring professionalism, discretion, and genuine care to every project.
-        </p>
-        <p class="philosophy-body" style="margin-top: 1rem;">
-            Fully insured. Experienced with luxury residences, high-value collections, and estate transitions throughout Miami-Dade and Broward.
-        </p>
-        <a href="consultation.html" class="btn-gold" style="margin-top:2rem; display:inline-block;">Book a Consultation</a>
     </div>
 </section>
 
