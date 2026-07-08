@@ -63,4 +63,3 @@ Brentwood Organizers is a professional home organization company based in Miami,
 - Schema.org markup: LocalBusiness, Article, FAQPage, BreadcrumbList
 - robots.txt and sitemap.xml at root
 - Contact: +1 (424) 394-0619, rhode@brentwoodorganizers.com
-- Instagram: https://www.instagram.com/brentwoodorganizers/

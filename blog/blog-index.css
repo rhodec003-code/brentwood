@@ -68,9 +68,7 @@ nav {
     display: flex;
     align-items: end;
     padding: 7rem 3.5rem 4rem;
-    background:
-        linear-gradient(120deg, rgba(42,37,32,0.78), rgba(42,37,32,0.34)),
-        url('../Office.jpeg') center/cover;
+    background:url('../Office.jpeg') center/cover;
 }
 .hero-inner, .intro-inner, .blog-inner, .cta-inner {
     width: min(1180px, 100%);
