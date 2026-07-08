@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://js.sentry-cdn.com/639f3861b197143a73d20d63c41d523e.min.js" crossorigin="anonymous"></script>
+    <link rel="canonical" href="https://www.brentwoodorganizers.com/about.html">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Brentwood Organizers | Miami Home Organization Team</title>
+    <meta name="description" content="Meet the Brentwood Organizers team behind Miami's white-glove home organization, luxury move-in, and estate transition services.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Brentwood Organizers">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="About Brentwood Organizers">
+    <meta property="og:description" content="Meet the team behind Brentwood Organizers and our white-glove approach to creating calm, functional, beautifully cared-for homes.">
+    <meta property="og:url" content="https://www.brentwoodorganizers.com/about.html">
+    <meta property="og:image" content="https://www.brentwoodorganizers.com/images/team/rhode-charles.jpeg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="About Brentwood Organizers">
+    <meta name="twitter:description" content="Meet the team behind Brentwood Organizers and our white-glove approach to creating calm, functional, beautifully cared-for homes.">
+    <meta name="twitter:image" content="https://www.brentwoodorganizers.com/images/team/rhode-charles.jpeg">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" href="favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #faf8f4;
+            --warm-white: #f5f2ed;
+            --sand: #e8e0d4;
+            --stone: #c9bfb0;
+            --charcoal: #2a2520;
+            --warm-gray: #6b6259;
+            --light-gray: #9c9289;
+            --gold: #b8965a;
+            --gold-light: #d4ad73;
+            --text: #2a2520;
+            --text-soft: #5a5149;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3.5rem;
+            background: rgba(250,248,244,0.96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(184,150,90,0.15);
+        }
+
+        .nav-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: var(--charcoal);
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links li { position: relative; }
+
+        .nav-links a {
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a[aria-current="page"] { color: var(--gold); }
+
+        .nav-dropdown {
+            position: absolute;
+            top: calc(100% + 0.9rem);
+            left: 50%;
+            transform: translateX(-50%);
+            min-width: 240px;
+            padding: 0.75rem 0;
+            background: rgba(250,248,244,0.98);
+            border: 1px solid rgba(184,150,90,0.18);
+            box-shadow: 0 22px 45px rgba(42,37,32,0.08);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+        }
+
+        .nav-dropdown a {
+            display: block;
+            padding: 0.8rem 1.1rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+        }
+
+        .nav-item-services:hover .nav-dropdown,
+        .nav-item-services:focus-within .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .nav-cta {
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--charcoal) !important;
+            border: 1px solid var(--gold);
+            padding: 0.55rem 1.4rem;
+            transition: all 0.2s !important;
+        }
+
+        .nav-cta:hover { background: var(--gold) !important; color: white !important; }
+
+        .mobile-menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border: 1px solid rgba(184,150,90,0.28);
+            background: rgba(250,248,244,0.94);
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-toggle span,
+        .mobile-menu-toggle span::before,
+        .mobile-menu-toggle span::after {
+            display: block;
+            width: 20px;
+            height: 2px;
+            background: var(--charcoal);
+            content: "";
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .mobile-menu-toggle span::before { transform: translateY(-7px); }
+        .mobile-menu-toggle span::after { transform: translateY(5px); }
+
+        .page-hero {
+            min-height: 82vh;
+            padding: 8rem 5rem 4rem;
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+            align-items: center;
+            gap: 4rem;
+            background: var(--cream);
+        }
+
+        .hero-eyebrow,
+        .section-label,
+        .team-label {
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .page-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(3.2rem, 7vw, 6.7rem);
+            font-weight: 300;
+            line-height: 0.98;
+            color: var(--charcoal);
+            margin: 1.3rem 0 1.8rem;
+        }
+
+        .page-title em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-copy {
+            max-width: 650px;
+            font-size: 1.05rem;
+            color: var(--text-soft);
+        }
+
+        .hero-portrait {
+            position: relative;
+            min-height: 540px;
+            overflow: hidden;
+            background: var(--sand);
+        }
+
+        .hero-portrait img {
+            width: 100%;
+            height: 100%;
+            min-height: 540px;
+            display: block;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .hero-caption {
+            position: absolute;
+            left: 1.2rem;
+            bottom: 1.2rem;
+            padding: 0.65rem 0.9rem;
+            background: rgba(250,248,244,0.92);
+            color: var(--charcoal);
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        section { padding: 6.5rem 5rem; }
+
+        .intro-section {
+            background: var(--charcoal);
+            color: var(--cream);
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.4rem, 4vw, 4.2rem);
+            font-weight: 300;
+            line-height: 1.08;
+            color: inherit;
+        }
+
+        .intro-copy {
+            display: grid;
+            gap: 1.25rem;
+            color: rgba(250,248,244,0.82);
+            font-size: 1rem;
+            max-width: 760px;
+        }
+
+        .team-section {
+            background: var(--warm-white);
+        }
+
+        .team-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-heading p {
+            max-width: 420px;
+            color: var(--text-soft);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        .team-card {
+            background: var(--cream);
+            border: 1px solid rgba(184,150,90,0.16);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100%;
+        }
+
+        .team-photo {
+            aspect-ratio: 4 / 4.5;
+            background: var(--sand);
+            overflow: hidden;
+        }
+
+        .team-photo img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .team-content {
+            padding: 1.7rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .team-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1;
+            color: var(--charcoal);
+        }
+
+        .team-role {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+        }
+
+        .team-bio {
+            color: var(--text-soft);
+            font-size: 0.95rem;
+        }
+
+        .values-section {
+            background: var(--cream);
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+            gap: 4rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .value-item {
+            border-top: 1px solid rgba(184,150,90,0.35);
+            padding-top: 1.2rem;
+        }
+
+        .value-item h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 0.45rem;
+        }
+
+        .value-item p {
+            color: var(--text-soft);
+            font-size: 0.94rem;
+        }
+
+        .cta-section {
+            background: var(--charcoal);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .cta-section p {
+            max-width: 620px;
+            margin: 1.2rem auto 2rem;
+            color: rgba(250,248,244,0.78);
+        }
+
+        .btn-primary {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            background: var(--gold);
+            color: white;
+            text-decoration: none;
+            border: 1px solid var(--gold);
+            transition: all 0.25s;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            border-color: var(--gold-light);
+        }
+
+        footer {
+            padding: 2.5rem 3.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(184,150,90,0.15);
+            background: var(--cream);
+        }
+
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--charcoal);
+            text-decoration: none;
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: var(--light-gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--warm-gray);
+            text-decoration: none;
+        }
+
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1rem 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .mobile-menu-toggle { display: flex; }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 0;
+                padding-top: 1rem;
+            }
+
+            nav.nav-open .nav-links { display: flex; }
+
+            .nav-links > li { border-top: 1px solid rgba(184,150,90,0.12); }
+
+            .nav-links a {
+                display: block;
+                padding: 0.9rem 0;
+            }
+
+            .nav-dropdown {
+                position: static;
+                transform: none;
+                min-width: 0;
+                padding: 0 0 0.5rem 1rem;
+                background: transparent;
+                border: 0;
+                box-shadow: none;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+            }
+
+            .nav-item-services.dropdown-open .nav-dropdown { display: block; }
+
+            .page-hero,
+            .intro-section,
+            .values-section {
+                grid-template-columns: 1fr;
+            }
+
+            .page-hero {
+                min-height: auto;
+                padding: 7rem 1.5rem 3rem;
+                gap: 2rem;
+            }
+
+            .hero-portrait,
+            .hero-portrait img {
+                min-height: 430px;
+            }
+
+            section { padding: 4.5rem 1.5rem; }
+
+            .team-heading {
+                display: block;
+            }
+
+            .team-heading p { margin-top: 1rem; }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            footer {
+                padding: 2rem 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "About Brentwood Organizers",
+  "url": "https://www.brentwoodorganizers.com/about.html",
+  "description": "Meet the team behind Brentwood Organizers, a Miami home organization company serving luxury move-ins, estate transitions, and beautifully organized homes.",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Brentwood Organizers",
+    "url": "https://www.brentwoodorganizers.com",
+    "employee": [
+      {
+        "@type": "Person",
+        "name": "Rhode Charles",
+        "jobTitle": "Founder & Move Manager"
+      },
+      {
+        "@type": "Person",
+        "name": "Michel Lacle",
+        "jobTitle": "Head of Operations"
+      },
+      {
+        "@type": "Person",
+        "name": "Kahdia Lake",
+        "jobTitle": "Head Concierge"
+      }
+    ]
+  }
+}
+    </script>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">Brentwood Organizers</a><button class="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false"><span></span></button>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="nav-item-services">
+            <a href="services.html">Services</a>
+            <div class="nav-dropdown">
+                <a href="luxury-move-in.html">Luxury Move-In</a>
+                <a href="home-organization.html">Home Organization</a>
+                <a href="estate-transitions.html">Estate Transitions</a>
+            </div>
+        </li>
+        <li class="nav-item-services">
+            <a href="locations.html">Locations</a>
+            <div class="nav-dropdown">
+                <a href="bal-harbour.html">Bal Harbour</a>
+                <a href="boca-raton.html">Boca Raton</a>
+                <a href="brickell.html">Brickell</a>
+                <a href="coral-gables.html">Coral Gables</a>
+                <a href="fort-lauderdale.html">Fort Lauderdale</a>
+                <a href="miami-springs.html">Miami Springs</a>
+                <a href="pembroke-pines.html">Pembroke Pines</a>
+                <a href="west-palm-beach.html">West Palm Beach</a>
+            </div>
+        </li>
+        <li class="nav-item-services"><a href="about.html" aria-current="page">About</a><div class="nav-dropdown"><a href="about.html">About</a><a href="reviews.html">Reviews</a><a href="faqs">FAQS</a></div></li>
+        <li><a href="blog/">Blogs</a></li>
+        <li class="lang-switch"><strong>EN</strong> <span class="lang-sep">|</span> <a href="es/">ES</a> <span class="lang-sep">|</span> <a href="fr/">FR</a> <span class="lang-sep">|</span> <a href="pt/">PT</a></li>
+        <li><a href="consultation.html" class="nav-cta">Request a Consultation</a></li>
+    </ul>
+</nav>
+
+<main>
+    <section class="page-hero">
+        <div>
+            <div class="hero-eyebrow">About Brentwood Organizers</div>
+            <h1 class="page-title">The people behind a <em>settled</em> home.</h1>
+            <p class="hero-copy">Brentwood Organizers brings structure, discretion, and genuine care to every home we touch. Our team supports clients through luxury move-ins, home organization, and estate transitions with thoughtful planning and polished execution.</p>
+        </div>
+        <figure class="hero-portrait">
+            <img src="images/team/rhode-charles.jpeg" alt="Rhode Charles, Founder and Move Manager at Brentwood Organizers">
+            <figcaption class="hero-caption">Rhode Charles · Founder & Move Manager</figcaption>
+        </figure>
+    </section>
+
+    <section class="intro-section">
+        <div>
+            <div class="section-label">Our Approach</div>
+            <h2 class="section-title">Calm, functional, beautifully cared for.</h2>
+        </div>
+        <div class="intro-copy">
+            <p>Hello, nice to meet you! My name is Rhode. Before launching Brentwood Organizers, I spent many years in retail management, where I developed a deep understanding for presentation, systems, and client experience. After opening retail locations for apparel and beauty brands, I found myself drawn to a more personal kind of work: helping people create homes that feel calm, functional, and beautifully cared for.</p>
+            <p>Brentwood was born from the desire to bring together my creative eye, project management background, and genuine love for helping people through life’s transitions. Whether we are preparing a home after a move, organizing everyday spaces, or supporting a larger estate transition, my goal is simple: to be a trusted partner in making your home feel settled, refined, and easier to live in.</p>
+            <p>With an eye for detail and a deep respect for the people and spaces we serve, my team and I bring professionalism, discretion, and genuine care to every project.</p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="team-heading">
+            <div>
+                <div class="section-label">Meet the Team</div>
+                <h2 class="section-title">Trusted hands, thoughtful systems.</h2>
+            </div>
+            <p>Each member of Brentwood supports a different part of the client experience, from the visible transformation to the behind-the-scenes details that keep a project moving smoothly.</p>
+        </div>
+
+        <div class="team-grid">
+            <article class="team-card">
+                <div class="team-photo">
+                    <img src="images/team/rhode-charles.jpeg" alt="Portrait of Rhode Charles">
+                </div>
+                <div class="team-content">
+                    <div class="team-label">Founder</div>
+                    <h3 class="team-name">Rhode Charles</h3>
+                    <div class="team-role">Founder & Move Manager</div>
+                    <p class="team-bio">Rhode leads Brentwood with a creative eye, a project manager’s discipline, and a deep respect for the people and homes the team serves. She guides clients through move-ins, organizing projects, and estate transitions with professionalism, discretion, and care.</p>
+                </div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-photo">
+                    <img src="images/team/michel-lacle.jpeg" alt="Portrait of Michel Lacle">
+                </div>
+                <div class="team-content">
+                    <div class="team-label">Operations</div>
+                    <h3 class="team-name">Michel Lacle</h3>
+                    <div class="team-role">Head of Operations</div>
+                    <p class="team-bio">Michel brings a systems-minded approach to the way each project is planned, coordinated, and delivered. He is the person behind the scenes keeping Brentwood’s systems running smoothly, with a focus on practical solutions that help the client experience feel seamless from start to finish.</p>
+                </div>
+            </article>
+
+            <article class="team-card">
+                <div class="team-photo">
+                    <img src="images/team/kahdia-lake.jpeg" alt="Portrait of Kahdia Lake">
+                </div>
+                <div class="team-content">
+                    <div class="team-label">Concierge</div>
+                    <h3 class="team-name">Kahdia Lake</h3>
+                    <div class="team-role">Head Concierge</div>
+                    <p class="team-bio">Kahdia is the warm, attentive point of support who helps clients feel cared for throughout the process. As Head Concierge, she focuses on thoughtful communication, client comfort, and the small details that make each Brentwood experience feel personal, polished, and easy to trust.</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <div>
+            <div class="section-label">What Guides Us</div>
+            <h2 class="section-title">Service that respects the home and the person living in it.</h2>
+        </div>
+        <div class="values-grid">
+            <div class="value-item">
+                <h3>Discretion</h3>
+                <p>We understand that every home is personal. Our work is handled with privacy, professionalism, and care.</p>
+            </div>
+            <div class="value-item">
+                <h3>Systems</h3>
+                <p>Beautiful spaces work best when the structure underneath them is thoughtful, repeatable, and easy to maintain.</p>
+            </div>
+            <div class="value-item">
+                <h3>Refinement</h3>
+                <p>We organize with an eye for presentation, proportion, and the lived-in elegance that makes a home feel complete.</p>
+            </div>
+            <div class="value-item">
+                <h3>Partnership</h3>
+                <p>From move managers to families and design partners, we work alongside the people who help a home come together.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="section-label">Begin With Brentwood</div>
+        <h2 class="section-title">Let’s make your home easier to live in.</h2>
+        <p>Whether you are moving in, reworking everyday spaces, or preparing for a larger transition, Brentwood brings the team, systems, and care to make the process feel calm from the first conversation.</p>
+        <a href="consultation.html" class="btn-primary">Request a Consultation</a>
+    </section>
+</main>
+
+<footer>
+    <a href="index.html" class="footer-logo">Brentwood Organizers</a>
+    <span class="footer-copy">© 2026 Brentwood Professional Organizers · Miami, FL</span>
+    <ul class="footer-links">
+        <li><a href="services.html">Services</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="consultation.html">Contact</a></li>
+        <li class="lang-switch"><a href="fr/">FR</a> <span class="lang-sep">|</span> <a href="es/">ES</a> <span class="lang-sep">|</span> <a href="pt/">PT</a></li>
+    </ul>
+</footer>
+
+<script>
+    (function () {
+        var mobileQuery = window.matchMedia('(max-width: 1024px)');
+        document.querySelectorAll('nav').forEach(function (nav) {
+            var toggle = nav.querySelector('.mobile-menu-toggle');
+            var links = nav.querySelector('.nav-links');
+            if (!toggle || !links) return;
+
+            toggle.addEventListener('click', function () {
+                var isOpen = nav.classList.toggle('nav-open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+
+            nav.querySelectorAll('.nav-item-services > a').forEach(function (trigger) {
+                trigger.addEventListener('click', function (event) {
+                    if (!mobileQuery.matches) return;
+                    event.preventDefault();
+                    trigger.parentElement.classList.toggle('dropdown-open');
+                });
+            });
+
+            links.querySelectorAll('a').forEach(function (link) {
+                link.addEventListener('click', function () {
+                    if (!mobileQuery.matches || link.parentElement.classList.contains('nav-item-services')) return;
+                    nav.classList.remove('nav-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                });
+            });
+        });
+    }());
+</script>
+<script src="assets/js/email-capture-popup.js"></script>
+</body>
+</html>
