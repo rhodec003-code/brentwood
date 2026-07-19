@@ -601,6 +601,34 @@
             color: var(--text-soft);
             line-height: 1.8;
         }
+        .media-upload-group {
+            border: 1px dashed rgba(184,150,90,0.5);
+            border-radius: 8px;
+            padding: 1rem;
+            background: rgba(255,255,255,0.7);
+        }
+        .media-upload-group input[type="file"] {
+            border-style: dashed;
+            cursor: pointer;
+        }
+        .media-hint {
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            line-height: 1.5;
+        }
+        .media-preview-list {
+            display: grid;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        .media-preview-item {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+            gap: 0.75rem;
+            font-size: 0.82rem;
+            color: var(--warm-gray);
+        }
         .form-status {
             grid-column: 1 / -1;
             display: none;
@@ -1385,6 +1413,12 @@
                     <label for="details">Project Details</label>
                     <textarea id="details" name="Project Details" placeholder="Share a few details about the home, rooms involved, and what kind of support you need." required></textarea>
                 </div>
+                <div class="request-field full-width media-upload-group">
+                    <label for="media-files">Attach Photos or Videos (optional)</label>
+                    <input id="media-files" type="file" name="media" accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime,.mov" multiple data-media-input>
+                    <p class="media-hint">Up to 3 files, 50 MB max each.</p>
+                    <div class="media-preview-list" data-media-preview></div>
+                </div>
                 <p class="request-note">Submit your request and our team will follow up shortly.</p>
                 <div id="brentwood-form-status" class="form-status"></div>
                 <div class="request-field full-width">
@@ -1459,6 +1493,71 @@
     const calendlyBooking = document.getElementById('calendly-booking');
     const calendlyHost = document.getElementById('calendly-inline-host');
     const calendlyUrl = 'https://calendly.com/rhode-brentwoodorganizers/let-s-talk-home-organization-support-clone';
+    const mediaInput = requestForm ? requestForm.querySelector('[data-media-input]') : null;
+    const mediaPreview = requestForm ? requestForm.querySelector('[data-media-preview]') : null;
+    const maxMediaFiles = 3;
+    const maxMediaFileSize = 50 * 1024 * 1024;
+    const allowedMediaTypes = new Set([
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'image/gif',
+        'video/mp4',
+        'video/webm',
+        'video/quicktime'
+    ]);
+    let selectedMediaFiles = [];
+
+    function formatSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
+    }
+
+    function renderSelectedMedia(files) {
+        if (!mediaPreview) return;
+        mediaPreview.innerHTML = '';
+        if (!files || files.length === 0) return;
+
+        Array.from(files).forEach(function (file) {
+            const item = document.createElement('div');
+            item.className = 'media-preview-item';
+            item.innerHTML = '<span>' + file.name + '</span><span>' + formatSize(file.size) + '</span>';
+            mediaPreview.appendChild(item);
+        });
+    }
+
+    function appendSelectedMedia(newFiles) {
+        const nextFiles = selectedMediaFiles.slice();
+        Array.from(newFiles || []).forEach(function (file) {
+            const key = file.name + '|' + file.size + '|' + file.lastModified;
+            const exists = nextFiles.some(function (existing) {
+                return (existing.name + '|' + existing.size + '|' + existing.lastModified) === key;
+            });
+            if (!exists && nextFiles.length < maxMediaFiles) {
+                nextFiles.push(file);
+            }
+        });
+        selectedMediaFiles = nextFiles;
+    }
+
+    function getMediaValidationError(files) {
+        if (!files || files.length === 0) return '';
+        if (files.length > maxMediaFiles) {
+            return 'You can upload up to ' + maxMediaFiles + ' files.';
+        }
+
+        for (const file of files) {
+            if (!allowedMediaTypes.has(file.type)) {
+                return 'Unsupported file format.';
+            }
+            if (file.size > maxMediaFileSize) {
+                return 'Each file must be smaller than 50 MB.';
+            }
+        }
+
+        return '';
+    }
 
     function showCalendly(formData) {
         if (!calendlyBooking || !calendlyHost) return;
@@ -1482,6 +1581,22 @@
     }
 
     if (requestForm) {
+        if (mediaInput) {
+            mediaInput.addEventListener('change', function () {
+                appendSelectedMedia(mediaInput.files);
+                renderSelectedMedia(selectedMediaFiles);
+
+                const mediaError = getMediaValidationError(selectedMediaFiles);
+                if (mediaError) {
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = '#dc3545';
+                    formStatus.textContent = mediaError;
+                }
+
+                mediaInput.value = '';
+            });
+        }
+
         requestForm.addEventListener('submit', function (event) {
             event.preventDefault();
 
@@ -1489,6 +1604,24 @@
             requestForm.querySelectorAll('input, select, textarea').forEach(function (input) {
                 if (!input.name) return;
                 formData[input.name] = input.value.trim();
+            });
+
+            const mediaError = getMediaValidationError(selectedMediaFiles);
+            if (mediaError) {
+                if (formStatus) {
+                    formStatus.style.display = 'block';
+                    formStatus.style.color = '#dc3545';
+                    formStatus.textContent = mediaError;
+                }
+                return;
+            }
+
+            const requestBody = new FormData();
+            Object.keys(formData).forEach(function (key) {
+                requestBody.append(key, formData[key]);
+            });
+            selectedMediaFiles.forEach(function (file) {
+                requestBody.append('media', file);
             });
 
             const submitButton = requestForm.querySelector('button[type="submit"]');
@@ -1505,8 +1638,7 @@
 
             fetch('https://thinksmart.life/forms/brentwood/submit', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+                body: requestBody
             })
                 .then(function (response) { return response.json(); })
                 .then(function (result) {
@@ -1521,6 +1653,8 @@
                     if (typeof gtag === 'function') gtag('event', 'generate_lead', {'method':'contact_form'});
                     showCalendly(formData);
                     requestForm.reset();
+                    selectedMediaFiles = [];
+                    renderSelectedMedia([]);
                 })
                 .catch(function (error) {
                     if (formStatus) {
