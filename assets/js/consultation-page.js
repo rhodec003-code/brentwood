@@ -5,8 +5,85 @@ const calendlyBooking = document.getElementById("calendly-booking");
 const calendlyHost = document.getElementById("calendly-inline-host");
 const calendlyUrl =
   "https://calendly.com/rhode-brentwoodorganizers/let-s-talk-home-organization-support-clone";
+const mediaInput = requestForm
+  ? requestForm.querySelector("[data-media-input]")
+  : null;
+const mediaPreview = requestForm
+  ? requestForm.querySelector("[data-media-preview]")
+  : null;
 const params = new URLSearchParams(window.location.search);
 const requestedService = params.get("service");
+const maxMediaFiles = 3;
+const maxMediaFileSize = 50 * 1024 * 1024;
+const allowedMediaTypes = new Set([
+  "image/jpeg",
+  "image/png",
+  "image/webp",
+  "image/gif",
+  "video/mp4",
+  "video/webm",
+  "video/quicktime",
+]);
+let selectedMediaFiles = [];
+
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + " B";
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+  return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+}
+
+function renderSelectedMedia(files) {
+  if (!mediaPreview) return;
+  mediaPreview.innerHTML = "";
+  if (!files || files.length === 0) return;
+
+  Array.from(files).forEach(function (file) {
+    const item = document.createElement("div");
+    item.className = "media-preview-item";
+    item.innerHTML =
+      "<span>" +
+      file.name +
+      "</span><span>" +
+      formatSize(file.size) +
+      "</span>";
+    mediaPreview.appendChild(item);
+  });
+}
+
+function appendSelectedMedia(newFiles) {
+  const nextFiles = selectedMediaFiles.slice();
+  Array.from(newFiles || []).forEach(function (file) {
+    const key = file.name + "|" + file.size + "|" + file.lastModified;
+    const exists = nextFiles.some(function (existing) {
+      return (
+        existing.name + "|" + existing.size + "|" + existing.lastModified ===
+        key
+      );
+    });
+    if (!exists && nextFiles.length < maxMediaFiles) {
+      nextFiles.push(file);
+    }
+  });
+  selectedMediaFiles = nextFiles;
+}
+
+function getMediaValidationError(files) {
+  if (!files || files.length === 0) return "";
+  if (files.length > maxMediaFiles) {
+    return "You can upload up to " + maxMediaFiles + " files.";
+  }
+
+  for (const file of files) {
+    if (!allowedMediaTypes.has(file.type)) {
+      return "Unsupported format. Use JPG, PNG, WebP, GIF, MP4, WebM, or MOV.";
+    }
+    if (file.size > maxMediaFileSize) {
+      return "Each file must be smaller than 50 MB.";
+    }
+  }
+
+  return "";
+}
 
 function showCalendly(formData) {
   if (!calendlyBooking || !calendlyHost) return;
@@ -48,6 +125,22 @@ if (requestedService && serviceSelect) {
 }
 
 if (requestForm) {
+  if (mediaInput) {
+    mediaInput.addEventListener("change", function () {
+      appendSelectedMedia(mediaInput.files);
+      renderSelectedMedia(selectedMediaFiles);
+
+      const mediaError = getMediaValidationError(selectedMediaFiles);
+      if (mediaError) {
+        formStatus.style.display = "block";
+        formStatus.style.color = "#dc3545";
+        formStatus.textContent = mediaError;
+      }
+
+      mediaInput.value = "";
+    });
+  }
+
   requestForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -83,6 +176,24 @@ if (requestForm) {
       return;
     }
 
+    const mediaError = getMediaValidationError(selectedMediaFiles);
+    if (mediaError) {
+      if (formStatus) {
+        formStatus.style.display = "block";
+        formStatus.style.color = "#dc3545";
+        formStatus.textContent = mediaError;
+      }
+      return;
+    }
+
+    const requestBody = new FormData();
+    Object.keys(formData).forEach(function (key) {
+      requestBody.append(key, formData[key]);
+    });
+    selectedMediaFiles.forEach(function (file) {
+      requestBody.append("media", file);
+    });
+
     const submitButton = requestForm.querySelector('button[type="submit"]');
     if (submitButton) {
       submitButton.disabled = true;
@@ -97,8 +208,7 @@ if (requestForm) {
 
     fetch("https://thinksmart.life/forms/brentwood/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
+      body: requestBody,
     })
       .then(function (response) {
         return response.json();
@@ -118,6 +228,8 @@ if (requestForm) {
         }
         showCalendly(formData);
         requestForm.reset();
+        selectedMediaFiles = [];
+        renderSelectedMedia([]);
         if (requestedService && serviceSelect) {
           const matchingOption = Array.from(serviceSelect.options).find(
             function (option) {

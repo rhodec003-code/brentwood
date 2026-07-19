@@ -381,6 +381,25 @@
                 required
               ></textarea>
             </div>
+            <div class="request-field full-width media-upload-group">
+              <label for="media-files"
+                >Attach Photos or Videos of What Needs to Be Organized
+                (optional)</label
+              >
+              <input
+                id="media-files"
+                type="file"
+                name="media"
+                accept="image/jpeg,image/png,image/webp,image/gif,video/mp4,video/webm,video/quicktime,.mov"
+                multiple
+                data-media-input
+              />
+              <p class="media-hint">
+                Up to 3 files, 50 MB max each. Images: JPG, PNG, WebP, GIF.
+                Videos: MP4, WebM, MOV.
+              </p>
+              <div class="media-preview-list" data-media-preview></div>
+            </div>
             <p class="request-note">
               Submit your request and our team will follow up shortly.
             </p>
