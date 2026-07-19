@@ -70,15 +70,15 @@ function appendSelectedMedia(newFiles) {
 function getMediaValidationError(files) {
   if (!files || files.length === 0) return "";
   if (files.length > maxMediaFiles) {
-    return "You can upload up to " + maxMediaFiles + " files.";
+    return "Voce pode enviar ate " + maxMediaFiles + " arquivos.";
   }
 
   for (const file of files) {
     if (!allowedMediaTypes.has(file.type)) {
-      return "Unsupported file format.";
+      return "Formato de arquivo nao suportado.";
     }
     if (file.size > maxMediaFileSize) {
-      return "Each file must be smaller than 50 MB.";
+      return "Cada arquivo deve ter menos de 50 MB.";
     }
   }
 
@@ -145,36 +145,12 @@ if (requestForm) {
     event.preventDefault();
 
     const formData = {};
-    let isValid = true;
-    let firstInvalidField = null;
-
     requestForm
       .querySelectorAll("input, select, textarea")
       .forEach(function (input) {
         if (!input.name) return;
-        const trimmedValue = input.value.trim();
-        formData[input.name] = trimmedValue;
-
-        if (input.hasAttribute("required") && trimmedValue === "") {
-          isValid = false;
-          if (!firstInvalidField) {
-            firstInvalidField = input;
-          }
-        }
+        formData[input.name] = input.value.trim();
       });
-
-    if (!isValid) {
-      if (formStatus) {
-        formStatus.style.display = "block";
-        formStatus.style.color = "#dc3545";
-        formStatus.textContent =
-          "Please fill in all required fields before submitting.";
-      }
-      if (firstInvalidField) {
-        firstInvalidField.focus();
-      }
-      return;
-    }
 
     const mediaError = getMediaValidationError(selectedMediaFiles);
     if (mediaError) {
@@ -197,13 +173,13 @@ if (requestForm) {
     const submitButton = requestForm.querySelector('button[type="submit"]');
     if (submitButton) {
       submitButton.disabled = true;
-      submitButton.textContent = "Submitting...";
+      submitButton.textContent = "Enviando...";
     }
 
     if (formStatus) {
       formStatus.style.display = "block";
       formStatus.style.color = "#6b6259";
-      formStatus.textContent = "Submitting...";
+      formStatus.textContent = "Enviando...";
     }
 
     fetch("https://thinksmart.life/forms/brentwood/submit", {
@@ -221,7 +197,7 @@ if (requestForm) {
         if (formStatus) {
           formStatus.style.color = "#198754";
           formStatus.textContent =
-            "Thank you! Your request has been received. We will be in touch shortly.";
+            "Obrigado! Sua solicitacao foi recebida. Entraremos em contato em breve.";
         }
         if (typeof window.gtag === "function") {
           window.gtag("event", "generate_lead", { method: "contact_form" });
@@ -248,14 +224,14 @@ if (requestForm) {
         if (formStatus) {
           formStatus.style.color = "#dc3545";
           formStatus.textContent =
-            "Sorry, there was a problem submitting your request. Please email us directly at info@brentwoodorganizers.com or try again.";
+            "Desculpe, ocorreu um problema ao enviar sua solicitacao. Envie um e-mail diretamente para info@brentwoodorganizers.com ou tente novamente.";
         }
         console.error("Form submission error:", error);
       })
       .finally(function () {
         if (submitButton) {
           submitButton.disabled = false;
-          submitButton.textContent = "Send Request";
+          submitButton.textContent = "Enviar Solicitacao";
         }
       });
   });
